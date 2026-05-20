@@ -81,8 +81,6 @@ function InstagramIcon({ className = "" }) {
     </svg>
   );
 }
-import { Button } from "@/components/ui/button";
-import { Card, CardContent } from "@/components/ui/card";
 
 function InstagramIcon({ className = "" }) {
   return (
