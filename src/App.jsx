@@ -108,7 +108,7 @@ export default function GokturkPetshopSite() {
     "https://wa.me/905325599778?text=Merhaba%2C%20G%C3%B6kt%C3%BCrk%20PetShop%20hakk%C4%B1nda%20bilgi%20almak%20istiyorum.";
   const instagramUrl = "https://www.instagram.com/gokturk.petshop/";
 
-  const logoSrc = "/mnt/data/pet.jpg";
+  const logoSrc = "/pet.jpg";
 
   const categories = [
     {
