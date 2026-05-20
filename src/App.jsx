@@ -58,7 +58,6 @@ function CardContent({ className = "", children, ...props }) {
   );
 }
 
-function InstagramIcon({ className = "" }) {
   return (
     <svg
       className={className}
