@@ -14,6 +14,73 @@ import {
   Leaf,
   Waves,
 } from "lucide-react";
+
+function cx(...classes) {
+  return classes.filter(Boolean).join(" ");
+}
+
+function Button({ className = "", children, ...props }) {
+  return (
+    <button
+      className={cx(
+        "inline-flex items-center gap-2 rounded-2xl bg-[#1a1b2a] px-5 py-3 text-sm font-semibold text-white shadow-sm transition hover:bg-[#22233a] focus-visible:outline-none focus-visible:ring-2 focus-visible:ring-offset-2 focus-visible:ring-offset-[#070814]",
+        className
+      )}
+      {...props}
+    >
+      {children}
+    </button>
+  );
+}
+
+function Card({ className = "", children, ...props }) {
+  return (
+    <div
+      className={cx(
+        "rounded-3xl border border-white/10 bg-white/5 shadow-sm",
+        className
+      )}
+      {...props}
+    >
+      {children}
+    </div>
+  );
+}
+
+function CardContent({ className = "", children, ...props }) {
+  return (
+    <div
+      className={cx("p-6", className)}
+      {...props}
+    >
+      {children}
+    </div>
+  );
+}
+
+function InstagramIcon({ className = "" }) {
+  return (
+    <svg
+      className={className}
+      viewBox="0 0 24 24"
+      fill="none"
+      xmlns="http://www.w3.org/2000/svg"
+    >
+      <rect width="24" height="24" rx="6" stroke="currentColor" strokeWidth="2" />
+      <path
+        d="M16 7h.01"
+        stroke="currentColor"
+        strokeWidth="3"
+        strokeLinecap="round"
+      />
+      <path
+        d="M12 16a4 4 0 1 0 0-8 4 4 0 0 0 0 8Z"
+        stroke="currentColor"
+        strokeWidth="2"
+      />
+    </svg>
+  );
+}
 import { Button } from "@/components/ui/button";
 import { Card, CardContent } from "@/components/ui/card";
 
