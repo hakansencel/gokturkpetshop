@@ -912,6 +912,7 @@ export default function GokturkPetshopSite() {
       <a href="tel:+905325599778" className="mt-2 block text-white/90">
         +90 532 559 97 78
       </a>
+
       <div className="mt-5 flex flex-wrap gap-3">
         <a
           href={whatsappUrl}
@@ -919,6 +920,7 @@ export default function GokturkPetshopSite() {
         >
           İletişime Geç
         </a>
+
         <a
           href={instagramUrl}
           target="_blank"
@@ -935,6 +937,9 @@ export default function GokturkPetshopSite() {
     Telif Hakkı © 2026 gokturkpetshop.com - Tüm Hakları Saklıdır.
   </div>
 </footer>
+      </div>
+  );
+}
         
           <div className="rounded-3xl bg-emerald-50 p-6">
             <MapPin className="mb-4 h-8 w-8 text-emerald-700" />
