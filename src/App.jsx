@@ -89,6 +89,8 @@ export default function GokturkPetshopSite() {
   const instagramUrl = "https://www.instagram.com/gokturk.petshop/";
 
   const logoSrc = "/pet.jpg";
+  const popupImageSrc = "/popup.jpg";
+  const [showPopup, setShowPopup] = useState(true);
 
   const categories = [
     {
@@ -461,6 +463,43 @@ export default function GokturkPetshopSite() {
 
   return (
     <div className="min-h-screen bg-[#f8faf7] text-[#173b2f]">
+      {showPopup && (
+  <div className="fixed inset-0 z-[100] flex items-center justify-center bg-black/60 px-5">
+    <div className="relative w-full max-w-lg overflow-hidden rounded-[2rem] bg-white shadow-2xl">
+      <button
+        type="button"
+        onClick={() => setShowPopup(false)}
+        className="absolute right-4 top-4 z-10 flex h-10 w-10 items-center justify-center rounded-full bg-white/90 text-xl font-black text-slate-700 shadow hover:bg-white"
+        aria-label="Popup kapat"
+      >
+        ×
+      </button>
+
+      <img
+        src={popupImageSrc}
+        alt="Göktürk Petshop duyuru"
+        className="w-full object-cover"
+      />
+
+      <div className="flex flex-col gap-3 p-5 sm:flex-row">
+        <a
+          href={whatsappUrl}
+          className="inline-flex flex-1 items-center justify-center rounded-full bg-emerald-700 px-5 py-3 text-sm font-black text-white hover:bg-emerald-800"
+        >
+          WhatsApp’tan Bilgi Al
+        </a>
+
+        <button
+          type="button"
+          onClick={() => setShowPopup(false)}
+          className="inline-flex flex-1 items-center justify-center rounded-full border border-slate-200 px-5 py-3 text-sm font-black text-slate-700 hover:bg-slate-50"
+        >
+          Kapat
+        </button>
+      </div>
+    </div>
+  </div>
+)}
       <header className="sticky top-0 z-50 border-b border-emerald-100 bg-white/90 backdrop-blur-xl">
         <div className="mx-auto flex max-w-7xl items-center justify-between px-5 py-4">
           <button type="button" onClick={goHome} className="flex items-center gap-3 text-left">
