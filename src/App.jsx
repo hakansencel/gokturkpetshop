@@ -469,7 +469,7 @@ export default function GokturkPetshopSite() {
             </div>
             <div>
               <div className="text-xl font-black tracking-tight">Göktürk Petshop</div>
-              <div className="text-xs font-bold uppercase tracking-[0.25em] text-[#f2a51f]">PetShop</div>
+              <div className="text-xs font-bold uppercase tracking-[0.25em] text-[#f2a51f]"></div>
             </div>
           </button>
 
