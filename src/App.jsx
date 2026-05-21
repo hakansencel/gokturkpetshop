@@ -885,7 +885,56 @@ export default function GokturkPetshopSite() {
       </main>
 
       <footer id="iletisim" className="bg-white">
-        <div className="mx-auto grid max-w-7xl gap-8 px-5 py-12 md:grid-cols-3">
+  <div className="mx-auto grid max-w-7xl gap-8 px-5 py-12 md:grid-cols-2">
+    <div className="rounded-3xl bg-emerald-50 p-4">
+      <div className="mb-4 flex items-center gap-3">
+        <MapPin className="h-8 w-8 text-emerald-700" />
+        <div>
+          <div className="text-xl font-black">Göktürk PetShop</div>
+          <p className="text-sm text-slate-600">
+            Göktürk Merkez Mah. Çamlık Caddesi No:37/C İstanbul
+          </p>
+        </div>
+      </div>
+
+      <iframe
+        title="Göktürk Petshop Konum"
+        src="https://www.google.com/maps?q=G%C3%B6kt%C3%BCrk%20Merkez%20Mah.%20%C3%87aml%C4%B1k%20Caddesi%20No%3A37%2FC%20%C4%B0stanbul&output=embed"
+        className="h-72 w-full rounded-2xl border-0"
+        loading="lazy"
+        referrerPolicy="no-referrer-when-downgrade"
+      />
+    </div>
+
+    <div className="rounded-3xl bg-emerald-700 p-6 text-white">
+      <Phone className="mb-4 h-8 w-8" />
+      <div className="text-xl font-black">WhatsApp</div>
+      <a href="tel:+905325599778" className="mt-2 block text-white/90">
+        +90 532 559 97 78
+      </a>
+      <div className="mt-5 flex flex-wrap gap-3">
+        <a
+          href={whatsappUrl}
+          className="inline-flex rounded-full bg-white px-5 py-3 text-sm font-black text-emerald-800"
+        >
+          İletişime Geç
+        </a>
+        <a
+          href={instagramUrl}
+          target="_blank"
+          rel="noreferrer"
+          className="inline-flex items-center rounded-full bg-white px-5 py-3 text-sm font-black text-pink-700"
+        >
+          <InstagramIcon className="mr-2 h-4 w-4" /> Instagram
+        </a>
+      </div>
+    </div>
+  </div>
+
+  <div className="border-t border-slate-100 py-6 text-center text-sm text-slate-500">
+    Telif Hakkı © 2026 gokturkpetshop.com - Tüm Hakları Saklıdır.
+  </div>
+</footer>
           <div>
             <div className="text-sm font-black uppercase tracking-[0.28em] text-emerald-600">Neredeyiz</div>
             <h2 className="mt-3 text-3xl font-black">Bizi Ziyaret Edin</h2>
