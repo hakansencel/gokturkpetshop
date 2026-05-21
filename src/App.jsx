@@ -465,7 +465,7 @@ export default function GokturkPetshopSite() {
     <div className="min-h-screen bg-[#f8faf7] text-[#173b2f]">
       {showPopup && (
   <div className="fixed inset-0 z-[100] flex items-center justify-center bg-black/60 px-5">
-    <div className="relative w-full max-w-lg overflow-hidden rounded-[2rem] bg-white shadow-2xl">
+    <div className="relative max-h-[90vh] w-full max-w-sm overflow-hidden rounded-[1.5rem] bg-white shadow-2xl md:max-w-md">
       <button
         type="button"
         onClick={() => setShowPopup(false)}
@@ -476,9 +476,9 @@ export default function GokturkPetshopSite() {
       </button>
 
       <img
-        src={popupImageSrc}
-        alt="Göktürk Petshop duyuru"
-        className="w-full object-cover"
+  src={popupImageSrc}
+  alt="Göktürk Petshop duyuru"
+  className="max-h-[72vh] w-full object-contain"
       />
 
       <div className="flex flex-col gap-3 p-5 sm:flex-row">
