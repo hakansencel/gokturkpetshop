@@ -899,7 +899,7 @@ export default function GokturkPetshopSite() {
 
             <iframe
               title="Göktürk Petshop Konum"
-              src="https://www.google.com/maps?q=G%C3%B6kt%C3%BCrk%20Merkez%20Mah.%20%C3%87aml%C4%B1k%20Caddesi%20No%3A37%2FC%20%C4%B0stanbul&output=embed"
+              src="https://www.google.com/maps?q=G%C3%B6kt%C3%BCrk%20Petshop%20%C3%87aml%C4%B1k%20Caddesi%2034%20G%C3%B6kt%C3%BCrk%20Ey%C3%BCpsultan%20%C4%B0stanbul&output=embed"
               className="h-72 w-full rounded-2xl border-0"
               loading="lazy"
               referrerPolicy="no-referrer-when-downgrade"
