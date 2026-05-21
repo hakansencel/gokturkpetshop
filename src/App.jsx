@@ -884,7 +884,7 @@ export default function GokturkPetshopSite() {
         )}
       </main>
 
-      <footer id="iletisim" className="bg-white">
+     <footer id="iletisim" className="bg-white">
   <div className="mx-auto grid max-w-7xl gap-8 px-5 py-12 md:grid-cols-2">
     <div className="rounded-3xl bg-emerald-50 p-4">
       <div className="mb-4 flex items-center gap-3">
@@ -935,11 +935,7 @@ export default function GokturkPetshopSite() {
     Telif Hakkı © 2026 gokturkpetshop.com - Tüm Hakları Saklıdır.
   </div>
 </footer>
-          <div>
-            <div className="text-sm font-black uppercase tracking-[0.28em] text-emerald-600">Neredeyiz</div>
-            <h2 className="mt-3 text-3xl font-black">Bizi Ziyaret Edin</h2>
-            <p className="mt-4 leading-7 text-slate-600">Göktürk Merkez Mah. Çamlık Caddesi No:37/C İstanbul</p>
-          </div>
+        
           <div className="rounded-3xl bg-emerald-50 p-6">
             <MapPin className="mb-4 h-8 w-8 text-emerald-700" />
             <div className="text-xl font-black">Göktürk PetShop</div>
