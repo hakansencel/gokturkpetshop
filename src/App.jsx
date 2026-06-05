@@ -491,7 +491,6 @@ export default function GokturkPetshopSite() {
         </div>
       </header>
 
-    return (
   <div className="min-h-screen bg-[#f8faf7] text-[#173b2f]">
     <header className="sticky top-0 z-50 border-b border-emerald-100 bg-white/90 backdrop-blur-xl">
       ...
