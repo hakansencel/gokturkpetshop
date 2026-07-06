@@ -1,6 +1,6 @@
 import React from "react";
 import { Fish, MapPin, Phone, ChevronRight, Sparkles, Truck, Leaf } from "lucide-react";
-import { categories } from "../data";
+import { categories } from "./data"; // ESKİ YAPIDAKİ ÖNÜNDE BULUNAN FAZLALIK NOKTAYI (.) SİLDİK, BÖYLECE DOSYAYI ANINDA BULACAK
 
 export default function HomeContent({ setActivePage }) {
   const wh = "https://wa.me";
@@ -14,7 +14,7 @@ export default function HomeContent({ setActivePage }) {
             <h1 className="text-4xl md:text-6xl font-black text-white mb-6">Göktürk <span className="bg-gradient-to-r from-cyan-400 via-blue-500 to-indigo-500 bg-clip-text text-transparent">Petshop</span></h1>
             <p className="text-lg text-slate-400 mb-8">Akvaryum dünyasından evcil hayvan aksesuarlarına kadar her şey.</p>
             <div className="flex flex-col sm:flex-row justify-center md:justify-start gap-4">
-              <a href={wh} target="_blank" rel="noreferrer"><button className="rounded-2xl bg-cyan-500 text-slate-950 font-bold px-8 py-3 text-sm flex items-center gap-2 justify-center"><Phone className="w-4 ..."/> İletişime Geçin</button></a>
+              <a href={wh} target="_blank" rel="noreferrer"><button className="rounded-2xl bg-cyan-500 text-slate-950 font-bold px-8 py-3 text-sm flex items-center gap-2 justify-center"><Phone className="w-4 h-4 fill-current"/> İletişime Geçin</button></a>
               <a href="https://instagram.com" target="_blank" rel="noreferrer"><button className="rounded-2xl border border-white/10 bg-white/5 text-white px-8 py-3 text-sm">Instagram'da Takip Et</button></a>
             </div>
           </div>
