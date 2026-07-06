@@ -9,8 +9,21 @@ const CardContent = ({ className = "", children, ...p }) => <div className={cx("
 const whUrl = "https://wa.me.";
 const scrTop = () => window.setTimeout(() => window.scrollTo({ top: 0, behavior: "smooth" }), 0);
 
+// Kategorilere göre harika duracak sabit Pixabay imaj havuzu sayıları
+const imagePool = {
+  freshwater: [438392, 1208365, 233178, 1782439, 1374189, 1149129, 2154433, 410103, 3192461, 2695569],
+  saltwater: [111624, 1591873, 2713437, 2419409, 1144005, 1269902, 1374189, 331566],
+  birds: [326243, 2442240, 162024, 2751433, 2816999, 1145100, 3159981],
+  reptiles: [1868316, 1210986, 2713421, 2252441, 1399874, 1149988],
+  food: [1081734, 1319842, 233178, 1782439, 1081734],
+  cats: [691166, 1149129, 410103, 1045233, 731466, 2154433],
+  dogs: [1851218, 513106, 1149988, 3159981, 2713421, 1399874]
+};
+
 function SubPage({ activePage, setActivePage }) {
   const p = pagesData[activePage];
+  const pool = imagePool[activePage] || imagePool.freshwater;
+
   return (
     <div className="min-h-screen bg-[#070814] text-white px-4 py-12 md:px-8">
       <div className="max-w-6xl mx-auto">
@@ -18,15 +31,21 @@ function SubPage({ activePage, setActivePage }) {
         <h1 className="text-3xl md:text-4xl font-extrabold mb-2 bg-gradient-to-r from-cyan-400 to-blue-500 bg-clip-text text-transparent">{p.title}</h1>
         <p className="text-slate-400 mb-10">Göktürk Petshop güvencesiyle aradığınız tüm türler ve ürünler.</p>
         <div className="grid gap-4 grid-cols-2 md:grid-cols-3 lg:grid-cols-4">
-          {p.items.map((item, idx) => (
-            <div key={idx} className="bg-white/5 border border-white/10 rounded-3xl p-4 flex flex-col justify-between hover:border-cyan-500/30 transition group">
-              <div>
-                <img src={`https://unsplash.com{idx}&q=${encodeURIComponent(item + " " + p.hint)}`} alt={item} className="w-full h-44 object-cover rounded-2xl mb-3 bg-slate-800" loading="lazy" />
-                <h3 className="font-bold text-base text-slate-100 group-hover:text-cyan-400">{item}</h3>
+          {p.items.map((item, idx) => {
+            // Her ürün için havuzdan sırayla patlamayan, net bir Pixabay resmi seçer
+            const imgId = pool[idx % pool.length];
+            const imageUrl = `https://pixabay.com{imgId}_1280.jpg`;
+            
+            return (
+              <div key={idx} className="bg-white/5 border border-white/10 rounded-3xl p-4 flex flex-col justify-between hover:border-cyan-500/30 transition group">
+                <div>
+                  <img src={imageUrl} alt={item} className="w-full h-44 object-cover rounded-2xl mb-3 bg-slate-800" loading="lazy" onError={(e) => { e.target.src = "https://pixabay.com"; }} />
+                  <h3 className="font-bold text-base text-slate-100 group-hover:text-cyan-400">{item}</h3>
+                </div>
+                <a href={whUrl} target="_blank" rel="noreferrer" className="mt-4 w-full text-center bg-cyan-500/10 hover:bg-cyan-500 text-cyan-400 hover:text-white text-xs font-semibold py-2 px-3 rounded-xl transition">Fiyat Sor</a>
               </div>
-              <a href={whUrl} target="_blank" rel="noreferrer" className="mt-4 w-full text-center bg-cyan-500/10 hover:bg-cyan-500 text-cyan-400 hover:text-white text-xs font-semibold py-2 px-3 rounded-xl transition">Fiyat Sor</a>
-            </div>
-          ))}
+            );
+          })}
         </div>
       </div>
     </div>
