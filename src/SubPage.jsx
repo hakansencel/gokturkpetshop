@@ -1,5 +1,4 @@
 import React from "react";
-import { Fish, Cat, Dog, Bird, Shell, Leaf } from "lucide-react";
 import { pagesData } from "./data";
 
 export default function SubPage({ activePage, setActivePage }) {
@@ -15,14 +14,10 @@ export default function SubPage({ activePage, setActivePage }) {
         <div className="grid gap-4 grid-cols-2 md:grid-cols-3 lg:grid-cols-4">
           {p.items.map((item, idx) => {
             const formattedName = item
-              .replace(/Ç/g, "c").replace(/ç/g, "c")
-              .replace(/Ğ/g, "g").replace(/ğ/g, "g")
-              .replace(/I/g, "i").replace(/ı/g, "i")
-              .replace(/İ/g, "i")
-              .replace(/Ö/g, "o").replace(/ö/g, "o")
-              .replace(/Ş/g, "s").replace(/ş/g, "s")
-              .replace(/Ü/g, "u").replace(/ü/g, "u")
-              .toLowerCase().trim().replace(/[^a-z0-9\s-]/g, "").replace(/\s+/g, "-").replace(/-+/g, "-");
+              .replace(/Ç/g, "c").replace(/ç/g, "c").replace(/Ğ/g, "g").replace(/ğ/g, "g")
+              .replace(/I/g, "i").replace(/ı/g, "i").replace(/İ/g, "i").replace(/Ö/g, "o")
+              .replace(/ö/g, "o").replace(/Ş/g, "s").replace(/ş/g, "s").replace(/Ü/g, "u")
+              .replace(/ü/g, "u").toLowerCase().trim().replace(/[^a-z0-9\s-]/g, "").replace(/\s+/g, "-").replace(/-+/g, "-");
 
             return (
               <div key={idx} className="bg-white/5 border border-white/10 rounded-3xl p-4 flex flex-col justify-between hover:border-cyan-500/30 transition group">
