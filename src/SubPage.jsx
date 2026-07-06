@@ -1,6 +1,6 @@
 import React from "react";
 import { Fish, Cat, Dog, Bird, Shell, Leaf } from "lucide-react";
-import { pagesData } from "../data";
+import { pagesData } from "./data"; // BAŞINDAKİ FAZLALIK NOKTAYI (.) SİLDİK, BÖYLECE DOSYAYI ARTIK ANINDA BULACAK
 
 function Placeholder({ type }) {
   const c = {
@@ -29,7 +29,7 @@ export default function SubPage({ activePage, setActivePage }) {
       <div className="max-w-6xl mx-auto">
         <button onClick={() => { setActivePage("home"); window.scrollTo({ top: 0, behavior: "smooth" }); }} className="mb-8 text-sm font-medium text-cyan-400 hover:text-cyan-300">← Ana Sayfaya Dön</button>
         <h1 className="text-3xl md:text-4xl font-extrabold mb-2 bg-gradient-to-r from-cyan-400 to-blue-500 bg-clip-text text-transparent">{p.title}</h1>
-        <p className="text-slate-400 mb-10">Göktürk Petshop güvencesiyle aradığınız tüm türler ve ürünler.</p>
+        <p className="text-slate-400 mb-10">Göktürk Petshop güvencesiyle aradığınız tüm türler ve Rooms.</p>
         <div className="grid gap-4 grid-cols-2 md:grid-cols-3 lg:grid-cols-4">
           {p.items.map((item, idx) => (
             <div key={idx} className="bg-white/5 border border-white/10 rounded-3xl p-4 flex flex-col justify-between hover:border-cyan-500/30 transition group">
