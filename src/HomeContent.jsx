@@ -1,11 +1,14 @@
 import React from "react";
-import { Fish, MapPin, Phone, ChevronRight, Sparkles, Truck, Leaf } from "lucide-react";
+import { Fish, MapPin, Phone, ChevronRight, Sparkles, Truck, Leaf, Map } from "lucide-react";
 import { categories } from "./data";
 
 export default function HomeContent({ setActivePage }) {
   const wh = "https://wa.me.";
   const go = (id) => { setActivePage(id); window.scrollTo({ top: 0, behavior: "smooth" }); };
   
+  // Müşterilerin dükkan konumunu doğrudan telefonlarındaki harita uygulamasında açacak resmi Google Haritalar linki
+  const googleMapsUrl = "https://google.com";
+
   return (
     <div className="min-h-screen bg-[#070814] text-slate-100 antialiased">
       <div className="relative overflow-hidden border-b border-white/5 bg-gradient-to-b from-[#0a0c1a] to-[#070814] py-20 md:py-32">
@@ -56,17 +59,24 @@ export default function HomeContent({ setActivePage }) {
             <div className="flex gap-4 items-start"><Phone className="w-5 h-5 text-cyan-400 mt-0.5" /><div><h4 className="font-bold text-white mb-1">Telefon / WhatsApp</h4><p className="text-sm text-slate-400">+90 532 559 97 78</p></div></div>
           </div>
         </div>
-        <div className="h-80 w-full bg-slate-900 border border-white/10 rounded-3xl overflow-hidden shadow-2xl">
-          {/* Resmi Google Paylaşım Embed Yapısı */}
-          <iframe 
-            title="Göktürk Petshop Harita" 
-            src="https://google.com" 
-            width="100%" 
-            height="100%" 
-            style={{ border: 0 }} 
-            allowFullScreen="" 
-            loading="lazy" 
-          />
+        
+        {/* Hata veren iframe yerine asla engellenmeyecek olan butonlu harita tasarımı */}
+        <div className="h-80 w-full bg-[#0d0e22] border border-white/10 rounded-3xl overflow-hidden relative shadow-2xl flex flex-col items-center justify-center p-6 text-center gap-4 group hover:border-cyan-500/30 transition-all duration-300">
+          <div className="w-16 h-12 rounded-2xl bg-cyan-500/10 border border-cyan-500/20 flex items-center justify-center text-cyan-400 group-hover:scale-110 transition duration-300">
+            <Map className="w-6 h-6" />
+          </div>
+          <div>
+            <h4 className="text-lg font-bold text-white mb-1">Canlı Yol Tarifi</h4>
+            <p className="text-xs text-slate-400 max-w-xs mx-auto">Google Haritalar üzerinden dükkanımızın tam konumuna ulaşmak ve yol tarifi almak için aşağıdaki butona tıklayın.</p>
+          </div>
+          <a 
+            href={googleMapsUrl} 
+            target="_blank" 
+            rel="noreferrer" 
+            className="inline-flex items-center gap-2 bg-cyan-500 hover:bg-cyan-600 text-slate-950 font-bold px-6 py-2.5 text-xs rounded-xl transition duration-200 shadow-md shadow-cyan-500/10"
+          >
+            Haritada Aç <ChevronRight className="w-3.5 h-3.5" />
+          </a>
         </div>
       </div>
       <footer className="border-t border-white/5 bg-[#05060f] py-8 text-center text-xs text-slate-500"><p>© {new Date().getFullYear()} Göktürk Petshop. Tüm Hakları Saklıdır.</p></footer>
