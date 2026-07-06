@@ -1,4 +1,4 @@
-import { Fish, Cat, Dog, Bird, Shell, Waves } from "lucide-react";
+import { Fish, Cat, Dog, Bird, Shell } from "lucide-react";
 
 export const pagesData = {
   freshwater: { title: "Tatlı Su Balıkları", items: ["Lepistes", "Beta Balığı", "Japon Balığı", "Melek Balığı", "Discus", "Neon Tetra", "Kardinal Tetra", "Siyah Neon Tetra", "Kırmızı Burun Tetra", "Serpae Tetra", "Limon Tetra", "Ember Tetra", "Glofish Tetra", "Zebra Danio", "Leopar Danio", "İnci Danio", "Rasbora", "Moli", "Plati", "Kılıç Kuyruk", "Gurami", "Cüce Vatoz", "Çöpçü Balığı", "Elma Salyangozu"] },
@@ -12,9 +12,9 @@ export const pagesData = {
 
 export const categories = [
   { id: "freshwater", icon: Fish, title: "Tatlı Su Balıkları", text: "Melek balığı, diskus, neon tetra ve daha fazlası.", grad: "from-cyan-100 to-blue-200" },
-  { id: "saltwater", icon: Waves, title: "Tuzlu Su Balıkları", text: "Palyaço balığı, aslan balığı, mercan ve egzotik türler.", grad: "from-blue-100 to-teal-200" },
+  { id: "saltwater", icon: Fish, title: "Tuzlu Su Balıkları", text: "Palyaço balığı, aslan balığı, mercan ve egzotik türler.", grad: "from-blue-100 to-teal-200" },
   { id: "cats", icon: Cat, title: "Kedi", text: "Mama, kum kabı, oyuncak ve aksesuarlar.", grad: "from-orange-100 to-amber-200" },
   { id: "dogs", icon: Dog, title: "Köpek", text: "Tasma, mama, yatak ve bakım ürünleri.", grad: "from-yellow-100 to-orange-200" },
-  { id: "birds", icon: Bird, title: "Kuş", text: "Kafes, yem, tünek og kuş aksesuarları.", grad: "from-lime-100 to-green-200" },
+  { id: "birds", icon: Bird, title: "Kuş", text: "Kafes, yem, tünek ve kuş aksesuarları.", grad: "from-lime-100 to-green-200" },
   { id: "reptiles", icon: Shell, title: "Sürüngenler", text: "Teraryum, ısıtıcı, canlı yem ve ekipmanlar.", grad: "from-emerald-100 to-stone-200" }
 ];
