@@ -121,7 +121,7 @@ export default function GokturkPetshopSite() {
     {
       icon: Bird,
       title: "Kuş",
-      text: "Kafes, yem, tünek ve kuş aksesuarları.",
+      text: "Kafes, yem, tünek og kuş aksesuarları.",
       gradient: "from-lime-100 to-green-200",
       action: () => openBirdPage()
     },
@@ -256,7 +256,7 @@ export default function GokturkPetshopSite() {
         
         <div className="grid gap-4 grid-cols-2 md:grid-cols-3 lg:grid-cols-4">
           {items.map((item, index) => (
-            <div key={index} className="bg-white/5 border border-white/10 rounded-3xl p-4 flex flex-col justify-between hover:border-cyan-500/3xl transition group">
+            <div key={index} className="bg-white/5 border border-white/10 rounded-3xl p-4 flex flex-col justify-between hover:border-cyan-500/30 transition group">
               <div>
                 <AutoImage name={item} categoryHint={hint} index={index} />
                 <h3 className="font-bold text-base text-slate-100 group-hover:text-cyan-400 transition">{item}</h3>
