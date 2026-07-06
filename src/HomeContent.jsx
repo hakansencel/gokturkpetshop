@@ -57,7 +57,7 @@ export default function HomeContent({ setActivePage }) {
           </div>
         </div>
         <div className="h-80 w-full bg-slate-900 border border-white/10 rounded-3xl overflow-hidden shadow-2xl">
-          {/* Resmi Google Embed API linki buraya yerleştirildi, hata riski bitti */}
+          {/* Resmi Google Paylaşım Embed Yapısı */}
           <iframe 
             title="Göktürk Petshop Harita" 
             src="https://google.com" 
@@ -66,7 +66,6 @@ export default function HomeContent({ setActivePage }) {
             style={{ border: 0 }} 
             allowFullScreen="" 
             loading="lazy" 
-            referrerPolicy="no-referrer-when-downgrade"
           />
         </div>
       </div>
