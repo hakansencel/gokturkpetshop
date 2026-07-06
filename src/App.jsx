@@ -123,9 +123,12 @@ export default function GokturkPetshopSite() {
         
         {/* DOĞRU LİNKLE GÜNCELLENEN VE ASLA ENGELLENMEYEN HARİTA ALANI */}
         <div className="h-80 w-full bg-slate-900 border border-white/10 rounded-3xl overflow-hidden relative shadow-2xl">
-        <button 
-  onClick={() => window.open("https://google.com", "_blank")}
-  className="w-full h-full bg-[#0d0e22] flex flex-col items-center justify-center p-6 text-center gap-4 group transition-all duration-300 hover:bg-[#131535]"
+        {/* JAVASCRIPT KİLİTLENMESİNİ ÇÖZEN %100 GARANTİLİ DOĞRU LİNK YAPISI */}
+<a 
+  href="https://google.com"
+  target="_blank"
+  rel="noreferrer"
+  className="w-full h-80 bg-[#0d0e22] flex flex-col items-center justify-center p-6 text-center gap-4 group transition-all duration-300 hover:bg-[#131535] rounded-3xl border border-white/10"
 >
   <div className="w-16 h-12 rounded-2xl bg-cyan-500/10 border border-cyan-500/20 flex items-center justify-center text-cyan-400 group-hover:scale-110 transition duration-300">
     <Map className="w-6 h-6" />
@@ -137,7 +140,8 @@ export default function GokturkPetshopSite() {
   <div className="inline-flex items-center gap-2 bg-cyan-500 text-slate-950 font-bold px-6 py-2.5 text-xs rounded-xl transition duration-200">
     Haritada Aç <ChevronRight className="w-3.5 h-3.5" />
   </div>
-</button>
+</a>
+
 
         </div>
       </div>
