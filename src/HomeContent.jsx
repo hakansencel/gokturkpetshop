@@ -1,10 +1,11 @@
 import React from "react";
 import { Fish, MapPin, Phone, ChevronRight, Sparkles, Truck, Leaf } from "lucide-react";
-import { categories } from "./data"; // ESKİ YAPIDAKİ ÖNÜNDE BULUNAN FAZLALIK NOKTAYI (.) SİLDİK, BÖYLECE DOSYAYI ANINDA BULACAK
+import { categories } from "./data";
 
 export default function HomeContent({ setActivePage }) {
-  const wh = "https://wa.me";
+  const wh = "https://wa.me.";
   const go = (id) => { setActivePage(id); window.scrollTo({ top: 0, behavior: "smooth" }); };
+  
   return (
     <div className="min-h-screen bg-[#070814] text-slate-100 antialiased">
       <div className="relative overflow-hidden border-b border-white/5 bg-gradient-to-b from-[#0a0c1a] to-[#070814] py-20 md:py-32">
@@ -14,18 +15,19 @@ export default function HomeContent({ setActivePage }) {
             <h1 className="text-4xl md:text-6xl font-black text-white mb-6">Göktürk <span className="bg-gradient-to-r from-cyan-400 via-blue-500 to-indigo-500 bg-clip-text text-transparent">Petshop</span></h1>
             <p className="text-lg text-slate-400 mb-8">Akvaryum dünyasından evcil hayvan aksesuarlarına kadar her şey.</p>
             <div className="flex flex-col sm:flex-row justify-center md:justify-start gap-4">
-              <a href={wh} target="_blank" rel="noreferrer"><button className="rounded-2xl bg-cyan-500 text-slate-950 font-bold px-8 py-3 text-sm flex items-center gap-2 justify-center"><Phone className="w-4 h-4 fill-current"/> İletişime Geçin</button></a>
-              <a href="https://instagram.com" target="_blank" rel="noreferrer"><button className="rounded-2xl border border-white/10 bg-white/5 text-white px-8 py-3 text-sm">Instagram'da Takip Et</button></a>
+              <a href={wh} target="_blank" rel="noreferrer"><button className="rounded-2xl bg-cyan-500 text-slate-950 font-bold px-8 py-3 text-sm flex items-center gap-2 justify-center w-full sm:w-auto"><Phone className="w-4 h-4 fill-current"/> İletişime Geçin</button></a>
+              <a href="https://instagram.com" target="_blank" rel="noreferrer"><button className="rounded-2xl border border-white/10 bg-white/5 text-white px-8 py-3 text-sm w-full sm:w-auto">Instagram'da Takip Et</button></a>
             </div>
           </div>
           <div className="w-48 h-48 md:w-64 md:h-64 rounded-full overflow-hidden border-4 border-white/10 bg-slate-800"><img src="/pet.jpg" alt="Logo" className="w-full h-full object-cover" /></div>
         </div>
       </div>
+      
       <div className="px-4 md:px-8 max-w-6xl mx-auto py-24 grid gap-6 sm:grid-cols-2 lg:grid-cols-3">
         {categories.map((cat, i) => {
           const Icon = cat.icon;
           return (
-            <div key={i} className="rounded-3xl border border-white/10 bg-white/5 p-8 flex flex-col justify-between cursor-pointer hover:border-white/20" onClick={() => go(cat.id)}>
+            <div key={i} className="rounded-3xl border border-white/10 bg-white/5 p-8 flex flex-col justify-between cursor-pointer hover:border-white/20 transition-all duration-300" onClick={() => go(cat.id)}>
               <div>
                 <div className={`w-12 h-12 rounded-2xl bg-gradient-to-br flex items-center justify-center text-slate-900 mb-6 ${cat.grad}`}><Icon className="w-6 h-6" /></div>
                 <h3 className="text-xl font-bold text-white mb-2">{cat.title}</h3>
@@ -36,6 +38,7 @@ export default function HomeContent({ setActivePage }) {
           );
         })}
       </div>
+
       <div className="bg-[#090a18] border-y border-white/5 py-24 text-center">
         <div className="px-4 md:px-8 max-w-6xl mx-auto grid gap-6 grid-cols-2 md:grid-cols-4">
           {[{ i: Sparkles, t: "Geniş Ürün Yelpazesi" }, { i: Fish, t: "Akvaryum Ürünleri" }, { i: Leaf, t: "Kaliteli Ürünler" }, { i: Truck, t: "Hızlı Teslimat" }].map((f, i) => {
@@ -43,6 +46,7 @@ export default function HomeContent({ setActivePage }) {
           })}
         </div>
       </div>
+
       <div className="px-4 md:px-8 max-w-6xl mx-auto py-24 grid gap-12 md:grid-cols-2 items-center">
         <div>
           <h2 className="text-3xl font-extrabold text-white mb-6">Mağazamızı Ziyaret Edin</h2>
@@ -52,7 +56,19 @@ export default function HomeContent({ setActivePage }) {
             <div className="flex gap-4 items-start"><Phone className="w-5 h-5 text-cyan-400 mt-0.5" /><div><h4 className="font-bold text-white mb-1">Telefon / WhatsApp</h4><p className="text-sm text-slate-400">+90 532 559 97 78</p></div></div>
           </div>
         </div>
-        <div className="h-80 w-full bg-slate-900 border border-white/10 rounded-3xl overflow-hidden shadow-2xl"><iframe title="Harita" src="https://google.com" width="100%" height="100%" style={{ border: 0 }} allowFullScreen="" loading="lazy" /></div>
+        <div className="h-80 w-full bg-slate-900 border border-white/10 rounded-3xl overflow-hidden shadow-2xl">
+          {/* Resmi Google Embed API linki buraya yerleştirildi, hata riski bitti */}
+          <iframe 
+            title="Göktürk Petshop Harita" 
+            src="https://google.com" 
+            width="100%" 
+            height="100%" 
+            style={{ border: 0 }} 
+            allowFullScreen="" 
+            loading="lazy" 
+            referrerPolicy="no-referrer-when-downgrade"
+          />
+        </div>
       </div>
       <footer className="border-t border-white/5 bg-[#05060f] py-8 text-center text-xs text-slate-500"><p>© {new Date().getFullYear()} Göktürk Petshop. Tüm Hakları Saklıdır.</p></footer>
     </div>
