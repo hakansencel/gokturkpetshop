@@ -123,17 +123,22 @@ export default function GokturkPetshopSite() {
         
         {/* DOĞRU LİNKLE GÜNCELLENEN VE ASLA ENGELLENMEYEN HARİTA ALANI */}
         <div className="h-80 w-full bg-slate-900 border border-white/10 rounded-3xl overflow-hidden relative shadow-2xl">
-          <button 
-            onClick={() => window.open("https://google.com", "_blank")}
-            className="w-full h-full bg-[#0d0e22] flex flex-col items-center justify-center p-6 text-center gap-4 group transition-all duration-300 hover:bg-[#131535]"
-          >
-            <div className="w-16 h-12 rounded-2xl bg-cyan-500/10 border border-cyan-500/20 flex items-center justify-center text-cyan-400 group-hover:scale-110 transition duration-300"><Map className="w-6 h-6" /></div>
-            <div>
-              <h4 className="text-lg font-bold text-white mb-1">Canlı Yol Tarifi</h4>
-              <p className="text-xs text-slate-400 max-w-xs mx-auto">Google Haritalar üzerinden dükkanımızın tam konumuna ulaşmak için tıklayın.</p>
-            </div>
-            <div className="inline-flex items-center gap-2 bg-cyan-500 text-slate-950 font-bold px-6 py-2.5 text-xs rounded-xl transition duration-200">Haritada Aç <ChevronRight className="w-3.5 h-3.5" /></div>
-          </button>
+        <button 
+  onClick={() => window.open("https://google.com", "_blank")}
+  className="w-full h-full bg-[#0d0e22] flex flex-col items-center justify-center p-6 text-center gap-4 group transition-all duration-300 hover:bg-[#131535]"
+>
+  <div className="w-16 h-12 rounded-2xl bg-cyan-500/10 border border-cyan-500/20 flex items-center justify-center text-cyan-400 group-hover:scale-110 transition duration-300">
+    <Map className="w-6 h-6" />
+  </div>
+  <div>
+    <h4 className="text-lg font-bold text-white mb-1">Canlı Yol Tarifi</h4>
+    <p className="text-xs text-slate-400 max-w-xs mx-auto">Google Haritalar üzerinden dükkanımızın tam konumuna ulaşmak için tıklayın.</p>
+  </div>
+  <div className="inline-flex items-center gap-2 bg-cyan-500 text-slate-950 font-bold px-6 py-2.5 text-xs rounded-xl transition duration-200">
+    Haritada Aç <ChevronRight className="w-3.5 h-3.5" />
+  </div>
+</button>
+
         </div>
       </div>
 
