@@ -57,7 +57,7 @@ function InstagramIcon({ className = "" }) {
       className={className}
       viewBox="0 0 24 24"
       fill="none"
-      xmlns="http://www.w3.org/2000/svg"
+      xmlns="http://w3.org"
     >
       <rect
         x="2"
@@ -85,8 +85,8 @@ function InstagramIcon({ className = "" }) {
 
 export default function GokturkPetshopSite() {
   const whatsappUrl =
-    "https://wa.me/905325599778?text=Merhaba%2C%20G%C3%B6kt%C3%BCrk%20PetShop%20hakk%C4%B1nda%20bilgi%20almak%20istiyorum.";
-  const instagramUrl = "https://www.instagram.com/gokturk.petshop/";
+    "https://wa.me.";
+  const instagramUrl = "https://instagram.com";
 
   const logoSrc = "/pet.jpg";
   const categories = [
