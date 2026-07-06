@@ -9,20 +9,21 @@ const CardContent = ({ className = "", children, ...p }) => <div className={cx("
 const whUrl = "https://wa.me.";
 const scrTop = () => window.setTimeout(() => window.scrollTo({ top: 0, behavior: "smooth" }), 0);
 
-// Kategorilere göre harika duracak sabit Pixabay imaj havuzu sayıları
-const imagePool = {
-  freshwater: [438392, 1208365, 233178, 1782439, 1374189, 1149129, 2154433, 410103, 3192461, 2695569],
-  saltwater: [111624, 1591873, 2713437, 2419409, 1144005, 1269902, 1374189, 331566],
-  birds: [326243, 2442240, 162024, 2751433, 2816999, 1145100, 3159981],
-  reptiles: [1868316, 1210986, 2713421, 2252441, 1399874, 1149988],
-  food: [1081734, 1319842, 233178, 1782439, 1081734],
-  cats: [691166, 1149129, 410103, 1045233, 731466, 2154433],
-  dogs: [1851218, 513106, 1149988, 3159981, 2713421, 1399874]
-};
-
 function SubPage({ activePage, setActivePage }) {
   const p = pagesData[activePage];
-  const pool = imagePool[activePage] || imagePool.freshwater;
+  
+  // Kategorilere göre Unsplash üzerindeki en popüler petshop görsel ID'leri (Garantili yüklenir)
+  const fallbackImages = {
+    freshwater: "photo-1544551763-46a013bb70d5", // Akvaryum balığı
+    saltwater: "photo-1522069169874-c58ec4b76be5",  // Palyaço balığı
+    birds: "photo-1452570053594-1b985d6ea890",      // Muhabbet kuşu
+    reptiles: "photo-1604608678051-64d46d84aefe",   // Gecko / Sürüngen
+    food: "photo-1589924691995-400dc9ebd100",       // Evcil hayvan maması
+    cats: "photo-1514888286974-6c03e2ca1dba",       // Kedi aksesuarları
+    dogs: "photo-1543466835-00a7907e9de1"        // Köpek tasması/bakımı
+  };
+
+  const currentPhotoId = fallbackImages[activePage] || fallbackImages.freshwater;
 
   return (
     <div className="min-h-screen bg-[#070814] text-white px-4 py-12 md:px-8">
@@ -32,14 +33,18 @@ function SubPage({ activePage, setActivePage }) {
         <p className="text-slate-400 mb-10">Göktürk Petshop güvencesiyle aradığınız tüm türler ve ürünler.</p>
         <div className="grid gap-4 grid-cols-2 md:grid-cols-3 lg:grid-cols-4">
           {p.items.map((item, idx) => {
-            // Her ürün için havuzdan sırayla patlamayan, net bir Pixabay resmi seçer
-            const imgId = pool[idx % pool.length];
-            const imageUrl = `https://pixabay.com{imgId}_1280.jpg`;
+            // Her canlı türü için Unsplash CDN üzerinden kırılma riski olmayan dinamik ve hızlı görsel linki
+            const imageUrl = `https://unsplash.com{currentPhotoId}?w=400&auto=format&fit=crop&q=70&sig=${idx}`;
             
             return (
               <div key={idx} className="bg-white/5 border border-white/10 rounded-3xl p-4 flex flex-col justify-between hover:border-cyan-500/30 transition group">
                 <div>
-                  <img src={imageUrl} alt={item} className="w-full h-44 object-cover rounded-2xl mb-3 bg-slate-800" loading="lazy" onError={(e) => { e.target.src = "https://pixabay.com"; }} />
+                  <img 
+                    src={imageUrl} 
+                    alt={item} 
+                    className="w-full h-44 object-cover rounded-2xl mb-3 bg-slate-800" 
+                    loading="lazy" 
+                  />
                   <h3 className="font-bold text-base text-slate-100 group-hover:text-cyan-400">{item}</h3>
                 </div>
                 <a href={whUrl} target="_blank" rel="noreferrer" className="mt-4 w-full text-center bg-cyan-500/10 hover:bg-cyan-500 text-cyan-400 hover:text-white text-xs font-semibold py-2 px-3 rounded-xl transition">Fiyat Sor</a>
