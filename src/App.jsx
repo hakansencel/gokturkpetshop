@@ -115,7 +115,7 @@ export default function GokturkPetshopSite() {
           <h2 className="text-3xl font-extrabold text-white mb-6">Mağazamızı Ziyaret Edin</h2>
           <p className="text-slate-400 mb-8">İstanbul Göktürk'teki sıcak mağazamızda sizi ve minik dostlarınızı ağırlamaktan mutluluk duyarız.</p>
           <div className="space-y-4">
-            <div className="flex gap-4 items-start"><span className="text-xl">📍</span><div><h4 className="font-bold text-white mb-1">Adres</h4><p className="text-sm text-slate-400">Göktürk, Eyüpsultan, İstanbul / Türkiye</p></div></div>
+            <div className="flex gap-4 items-start"><span className="text-xl">📍</span><div><h4 className="font-bold text-white mb-1">Adres</h4><p className="text-sm text-slate-400">Göktürk Merkez mah. Çamlık cad. No:37/C, Eyüpsultan, İstanbul / Türkiye</p></div></div>
             <div className="flex gap-4 items-start"><span className="text-xl">📞</span><div><h4 className="font-bold text-white mb-1">Telefon / WhatsApp</h4><p className="text-sm text-slate-400">+90 532 559 97 78</p></div></div>
           </div>
         </div>
