@@ -1,12 +1,12 @@
-import React, { useState } from "react";
+import React, { useState, useEffect } from "react";
 
 const cats = [
-  { id: "freshwater", title: "Tatlı Su Balıkları", text: "Melek balığı, diskus ve neon tetra.", grad: "from-cyan-100 to-blue-200", items: ["Lepistes", "Beta Balığı", "Japon Balığı", "Melek Balığı", "Discus", "Neon Tetra", "Kardinal Tetra", "Siyah Neon Tetra", "Rasbora", "Moli", "Plati", "Kılıç Kuyruk", "Gurami", "Cüce Vatoz", "Çöpçü Balığı", "Elma Salyangozu"] },
-  { id: "saltwater", title: "Tuzlu Su Balıkları", text: "Palyaço balığı, aslan balığı ve mercanlar.", grad: "from-blue-100 to-teal-200", items: ["Palyaço Balığı", "Blue Tang", "Yellow Tang", "Aslan Balığı", "Melek Balığı", "Kelebek Balığı", "Gobies", "Blenny", "Damselfish", "Karides", "Mercan Çeşitleri", "Anemon"] },
-  { id: "cats", title: "Kedi Ürünleri", text: "Mama, kum, oyuncak ve aksesuarlar.", grad: "from-orange-100 to-amber-200", items: ["Kedi Mamaları", "Yaş Mama", "Kedi Kumu", "Kum Kabı", "Tırmalama Tahtası", "Kedi Oyuncakları", "Kedi Tasmaları", "Taşıma Çantası", "Kedi Yatakları"] },
-  { id: "dogs", title: "Köpek Ürünleri", text: "Tasma, mama, yatak ve bakım ürünleri.", grad: "from-yellow-100 to-orange-200", items: ["Köpek Mamaları", "Ödül Mamaları", "Köpek Tasmaları", "Gezdirme Kayışları", "Köpek Oyuncakları", "Köpek Yatakları", "Şampuan ve Bakım"] },
-  { id: "birds", title: "Kuş Çeşitleri", text: "Kafes, yem ve kuş aksesuarları.", grad: "from-lime-100 to-green-200", items: ["Muhabbet Kuşu", "Kanarya", "Sultan Papağanı", "Cennet Papağanı", "Sevda Papağanı", "Hint Bülbülü", "Zebra İspinozu", "Kafes ve Yem"] },
-  { id: "reptiles", title: "Sürüngenler", text: "Teraryum, ısıtıcı ve ekipmanlar.", grad: "from-emerald-100 to-stone-200", items: ["Leopard Gecko", "Crested Gecko", "Sakallı Ejder", "Bukalemun", "Yeşil İguana", "Mısır Yılanı", "Top Piton", "Su Kaplumbağası"] }
+  { id: "freshwater", title: "Tatlı Su Balıkları", text: "Melek balığı, diskus ve neon tetra.", grad: "from-cyan-100 to-blue-200", folder: "baliklar", items: ["Lepistes", "Beta Balığı", "Japon Balığı", "Melek Balığı", "Discus", "Neon Tetra", "Kardinal Tetra", "Siyah Neon Tetra", "Rasbora", "Moli", "Plati", "Kılıç Kuyruk", "Gurami", "Cüce Vatoz", "Çöpçü Balığı", "Elma Salyangozu"] },
+  { id: "saltwater", title: "Tuzlu Su Balıkları", text: "Palyaço balığı, aslan balığı ve mercanlar.", grad: "from-blue-100 to-teal-200", folder: "baliklar", items: ["Palyaço Balığı", "Blue Tang", "Yellow Tang", "Aslan Balığı", "Melek Balığı", "Kelebek Balığı", "Gobies", "Blenny", "Damselfish", "Karides", "Mercan Çeşitleri", "Anemon"] },
+  { id: "cats", title: "Kedi Ürünleri", text: "Mama, kum, oyuncak ve aksesuarlar.", grad: "from-orange-100 to-amber-200", folder: "kediler", items: ["Kedi Mamaları", "Yaş Mama", "Kedi Kumu", "Kum Kabı", "Tırmalama Tahtası", "Kedi Oyuncakları", "Kedi Tasmaları", "Taşıma Çantası", "Kedi Yatakları"] },
+  { id: "dogs", title: "Köpek Ürünleri", text: "Tasma, mama, yatak ve bakım ürünleri.", grad: "from-yellow-100 to-orange-200", folder: "kopekler", items: ["Köpek Mamaları", "Ödül Mamaları", "Köpek Tasmaları", "Gezdirme Kayışları", "Köpek Oyuncakları", "Köpek Yatakları", "Şampuan ve Bakım"] },
+  { id: "birds", title: "Kuş Çeşitleri", text: "Kafes, yem ve kuş aksesuarları.", grad: "from-lime-100 to-green-200", folder: "kuslar", items: ["Muhabbet Kuşu", "Kanarya", "Sultan Papağanı", "Cennet Papağanı", "Sevda Papağanı", "Hint Bülbülü", "Zebra İspinozu", "Kafes ve Yem"] },
+  { id: "reptiles", title: "Sürüngenler", text: "Teraryum, ısıtıcı ve ekipmanlar.", grad: "from-emerald-100 to-stone-200", folder: "surengenler", items: ["Leopard Gecko", "Crested Gecko", "Sakallı Ejder", "Bukalemun", "Yeşil İguana", "Mısır Yılanı", "Top Piton", "Su Kaplumbağası"] }
 ];
 
 export default function GokturkPetshopSite() {
@@ -14,29 +14,43 @@ export default function GokturkPetshopSite() {
   const [showPopup, setShowPopup] = useState(true);
   const active = cats.find(c => c.id === page);
 
-  const getUrl = (item) => {
+  // Telefon numaranız ve otomatik mesaj yapısı
+  const whatsappNumber = "905325599778";
+  const getWhatsAppLink = (message) => `https://wa.me/${whatsappNumber}?text=${encodeURIComponent(message)}`;
+
+  // Dinamik Sayfa Başlığı (SEO ve Kullanıcı Deneyimi için)
+  useEffect(() => {
+    if (page === "home") {
+      document.title = "Göktürk Petshop | Akvaryum ve Evcil Hayvan Dünyası";
+    } else if (active) {
+      document.title = `${active.title} | Göktürk Petshop`;
+    }
+  }, [page, active]);
+
+  // Klasör yapısına göre dinamik görsel URL'i oluşturucu
+  const getUrl = (item, folder) => {
     const fName = item.replace(/Ç/g, "c").replace(/ç/g, "c").replace(/Ğ/g, "g").replace(/ğ/g, "g").replace(/I/g, "i").replace(/ı/g, "i").replace(/İ/g, "i").replace(/Ö/g, "o").replace(/ö/g, "o").replace(/Ş/g, "s").replace(/ş/g, "s").replace(/Ü/g, "u").replace(/ü/g, "u").toLowerCase().trim().replace(/[^a-z0-9\s-]/g, "").replace(/\s+/g, "-").replace(/-+/g, "-");
-    return `/baliklar/${fName}.jpg`;
+    return `/images/${folder}/${fName}.jpg`; 
   };
 
   if (page !== "home" && active) {
     return (
       <div className="min-h-screen bg-[#070814] text-white px-4 py-12 md:px-8">
         <div className="max-w-6xl mx-auto">
-          <button onClick={() => { setPage("home"); window.scrollTo({ top: 0, behavior: "smooth" }); }} className="mb-8 text-sm font-medium text-cyan-400">← Ana Sayfaya Dön</button>
+          <button onClick={() => { setPage("home"); window.scrollTo({ top: 0, behavior: "smooth" }); }} className="mb-8 text-sm font-medium text-cyan-400 hover:underline">← Ana Sayfaya Dön</button>
           <h1 className="text-3xl font-extrabold mb-2 bg-gradient-to-r from-cyan-400 to-blue-500 bg-clip-text text-transparent">{active.title}</h1>
-          <p className="text-slate-400 mb-10">Göktürk Petshop güvencesiyle aradığınız tüm türler.</p>
+          <p className="text-slate-400 mb-10">Göktürk Petshop güvencesiyle aradığınız tüm türler ve ürünler.</p>
           <div className="grid gap-4 grid-cols-2 md:grid-cols-3 lg:grid-cols-4">
             {active.items.map((item, idx) => (
               <div key={idx} className="bg-white/5 border border-white/10 rounded-3xl p-4 flex flex-col justify-between hover:border-cyan-500/30 transition group">
                 <div>
                   <div className="w-full h-44 mb-3 rounded-2xl overflow-hidden relative bg-slate-900">
-                    <img src={getUrl(item)} alt={item} className="w-full h-full object-cover relative z-10" onError={(e) => { e.target.style.display = 'none'; }} />
-                    <div className="absolute inset-0 flex flex-col items-center justify-center border border-cyan-500/20 bg-cyan-950/40 gap-3 text-cyan-400 z-0"><span className="text-2xl">🐟</span><span className="text-xs font-medium uppercase opacity-60">Göktürk Petshop</span></div>
+                    <img src={getUrl(item, active.folder)} alt={item} className="w-full h-full object-cover relative z-10" onError={(e) => { e.target.style.display = 'none'; }} />
+                    <div className="absolute inset-0 flex flex-col items-center justify-center border border-cyan-500/20 bg-cyan-950/40 gap-3 text-cyan-400 z-0"><span className="text-2xl">🐾</span><span className="text-xs font-medium uppercase opacity-60">Göktürk Petshop</span></div>
                   </div>
                   <h3 className="font-bold text-base text-slate-100 group-hover:text-cyan-400">{item}</h3>
                 </div>
-                <a href="https://wa.me" target="_blank" rel="noopener noreferrer" className="mt-4 w-full text-center bg-cyan-500/10 text-cyan-400 py-2 px-3 rounded-xl text-xs font-semibold hover:bg-cyan-500 hover:text-white transition">Fiyat Sor</a>
+                <a href={getWhatsAppLink(`Merhaba, ${active.title} kategorisindeki "${item}" ürünü/canlısı hakkında fiyat ve stok bilgisi alabilir miyim?`)} target="_blank" rel="noopener noreferrer" className="mt-4 w-full text-center bg-cyan-500/10 text-cyan-400 py-2 px-3 rounded-xl text-xs font-semibold hover:bg-cyan-500 hover:text-white transition">Fiyat Sor</a>
               </div>
             ))}
           </div>
@@ -44,6 +58,7 @@ export default function GokturkPetshopSite() {
       </div>
     );
   }
+
   return (
     <div className="min-h-screen bg-[#070814] text-slate-100 antialiased selection:bg-cyan-500">
       {showPopup && (
@@ -52,10 +67,10 @@ export default function GokturkPetshopSite() {
             <button onClick={() => setShowPopup(false)} className="absolute top-4 right-4 text-slate-400 hover:text-white">✕</button>
             <div className="w-12 h-12 rounded-2xl bg-cyan-500/10 border border-cyan-500/20 flex items-center justify-center text-cyan-400 mb-4"><span className="text-xl">✨</span></div>
             <h3 className="text-2xl font-black text-white mb-2">Mağazamıza Bekleriz!</h3>
-            <p className="text-sm text-slate-400 mb-6">Göktürk şubemizde akvaryum kurulumları, canlı türleri ver evcil hayvan ürünlerinde özel fırsatlar sizi bekliyor.</p>
+            <p className="text-sm text-slate-400 mb-6">Göktürk şubemizde akvaryum kurulumları, canlı türleri ve evcell hayvan ürünlerinde özel fırsatlar sizi bekliyor.</p>
             <div className="flex gap-3">
-              <button onClick={() => setShowPopup(false)} className="flex-1 border border-white/10 bg-white/5 text-xs font-bold py-3 rounded-xl">Kapat</button>
-              <a href="https://wa.me" target="_blank" rel="noopener noreferrer" className="flex-1 bg-cyan-500 text-slate-950 text-center text-xs font-bold py-3 rounded-xl">WhatsApp Bilgi Al</a>
+              <button onClick={() => setShowPopup(false)} className="flex-1 border border-white/10 bg-white/5 text-xs font-bold py-3 rounded-xl text-white">Kapat</button>
+              <a href={getWhatsAppLink("Merhaba, mağazanız ve ürünleriniz hakkında bilgi almak istiyorum.")} target="_blank" rel="noopener noreferrer" className="flex-1 bg-cyan-500 text-slate-950 text-center text-xs font-bold py-3 rounded-xl hover:bg-cyan-400 transition">WhatsApp Bilgi Al</a>
             </div>
           </div>
         </div>
@@ -68,8 +83,8 @@ export default function GokturkPetshopSite() {
             <h1 className="text-4xl md:text-6xl font-black text-white mb-6">Göktürk <span className="bg-gradient-to-r from-cyan-400 via-blue-500 to-indigo-500 bg-clip-text text-transparent">Petshop</span></h1>
             <p className="text-lg text-slate-400 mb-8">Akvaryum dünyasından evcil hayvan aksesuarlarına kadar her şey.</p>
             <div className="flex flex-col sm:flex-row justify-center md:justify-start gap-4">
-              <a href="https://wa.me" target="_blank" rel="noopener noreferrer" className="rounded-2xl bg-cyan-500 text-slate-950 font-bold px-8 py-3 text-sm flex items-center gap-2 w-full sm:w-auto justify-center">İletişime Geçin</a>
-              <a href="https://instagram.com" target="_blank" rel="noopener noreferrer" className="rounded-2xl border border-white/10 bg-white/5 text-white px-8 py-3 text-sm w-full sm:w-auto text-center">Instagram'da Takip Et</a>
+              <a href={getWhatsAppLink("Merhaba Göktürk Petshop, sizinle iletişime geçmek istiyorum.")} target="_blank" rel="noopener noreferrer" className="rounded-2xl bg-cyan-500 text-slate-950 font-bold px-8 py-3 text-sm flex items-center gap-2 w-full sm:w-auto justify-center hover:bg-cyan-400 transition">İletişime Geçin</a>
+              <a href="https://instagram.com" target="_blank" rel="noopener noreferrer" className="rounded-2xl border border-white/10 bg-white/5 text-white px-8 py-3 text-sm w-full sm:w-auto text-center hover:bg-white/10 transition">Instagram'da Takip Et</a>
             </div>
           </div>
           <div className="w-48 h-48 md:w-64 md:h-64 rounded-full overflow-hidden border-4 border-white/10 bg-slate-800"><img src="/pet.jpg" alt="Logo" className="w-full h-full object-cover" /></div>
@@ -78,7 +93,7 @@ export default function GokturkPetshopSite() {
 
       <div className="px-4 md:px-8 max-w-6xl mx-auto py-24 grid gap-6 sm:grid-cols-2 lg:grid-cols-3">
         {cats.map((cat, i) => (
-          <div key={i} className="rounded-3xl border border-white/10 bg-white/5 p-8 flex flex-col justify-between cursor-pointer hover:border-white/20 transition-all duration-300" onClick={() => { setPage(cat.id); window.scrollTo({ top: 0, behavior: "smooth" }); }}>
+          <div key={i} className="rounded-3xl border border-white/10 bg-white/5 p-8 flex flex-col justify-between cursor-pointer hover:border-cyan-500/30 transition-all duration-300" onClick={() => { setPage(cat.id); window.scrollTo({ top: 0, behavior: "smooth" }); }}>
             <div>
               <div className="w-12 h-12 rounded-2xl bg-white/10 flex items-center justify-center text-xl mb-6">🐾</div>
               <h3 className="text-xl font-bold text-white mb-2">{cat.title}</h3>
@@ -89,7 +104,7 @@ export default function GokturkPetshopSite() {
         ))}
       </div>
 
-      <div className="bg-[#090a18] border-y border-white/5 py-24 grid gap-6 grid-cols-2 md:grid-cols-4">
+      <div className="bg-[#090a18] border-y border-white/5 py-12 grid gap-6 grid-cols-2 md:grid-cols-4 px-4 max-w-6xl mx-auto rounded-3xl mb-12">
         {["Geniş Ürün Yelpazesi", "Akvaryum Ürünleri", "Kaliteli Ürünler", "Hızlı Teslimat"].map((t, i) => (
           <div key={i} className="bg-white/5 border border-white/10 rounded-2xl p-6 flex flex-col items-center text-center"><span className="text-3xl mb-4">⭐</span><span className="font-semibold text-sm text-slate-200">{t}</span></div>
         ))}
@@ -100,12 +115,12 @@ export default function GokturkPetshopSite() {
           <h2 className="text-3xl font-extrabold text-white mb-6">Mağazamızı Ziyaret Edin</h2>
           <p className="text-slate-400 mb-8">İstanbul Göktürk'teki sıcak mağazamızda sizi ve minik dostlarınızı ağırlamaktan mutluluk duyarız.</p>
           <div className="space-y-4">
-            <div className="flex gap-4 items-start"><span className="text-xl">📍</span><div><h4 className="font-bold text-white mb-1">Adres</h4><p className="text-sm text-slate-400">Göktürk, İstanbul / Türkiye</p></div></div>
+            <div className="flex gap-4 items-start"><span className="text-xl">📍</span><div><h4 className="font-bold text-white mb-1">Adres</h4><p className="text-sm text-slate-400">Göktürk, Eyüpsultan, İstanbul / Türkiye</p></div></div>
             <div className="flex gap-4 items-start"><span className="text-xl">📞</span><div><h4 className="font-bold text-white mb-1">Telefon / WhatsApp</h4><p className="text-sm text-slate-400">+90 532 559 97 78</p></div></div>
           </div>
         </div>
         <div className="h-80 w-full bg-slate-900 border border-white/10 rounded-3xl overflow-hidden relative shadow-2xl">
-          <a href="https://google.com" target="_blank" rel="noopener noreferrer" className="w-full h-full bg-[#0d0e22] flex flex-col items-center justify-center p-6 text-center gap-4 group hover:bg-[#131535]">
+          <a href="https://maps.google.com" target="_blank" rel="noopener noreferrer" className="w-full h-full bg-[#0d0e22] flex flex-col items-center justify-center p-6 text-center gap-4 group hover:bg-[#131535] transition">
             <div className="w-16 h-12 rounded-2xl bg-cyan-500/10 border border-cyan-500/20 flex items-center justify-center text-xl group-hover:scale-110 transition duration-300">🧭</div>
             <div>
               <h4 className="text-lg font-bold text-white mb-1">Canlı Yol Tarifi</h4>
