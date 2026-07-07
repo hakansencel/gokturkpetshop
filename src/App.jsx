@@ -1,5 +1,4 @@
 import React, { useState } from "react";
-import { Fish, MapPin, Phone, ChevronRight, Sparkles, Truck, Leaf, Cat, Dog, Bird, Shell, Map, X } from "lucide-react";
 
 const cats = [
   { id: "freshwater", title: "Tatlı Su Balıkları", text: "Melek balığı, diskus ve neon tetra.", grad: "from-cyan-100 to-blue-200", items: ["Lepistes", "Beta Balığı", "Japon Balığı", "Melek Balığı", "Discus", "Neon Tetra", "Kardinal Tetra", "Siyah Neon Tetra", "Rasbora", "Moli", "Plati", "Kılıç Kuyruk", "Gurami", "Cüce Vatoz", "Çöpçü Balığı", "Elma Salyangozu"] },
@@ -33,7 +32,7 @@ export default function GokturkPetshopSite() {
                 <div>
                   <div className="w-full h-44 mb-3 rounded-2xl overflow-hidden relative bg-slate-900">
                     <img src={getUrl(item)} alt={item} className="w-full h-full object-cover relative z-10" onError={(e) => { e.target.style.display = 'none'; }} />
-                    <div className="absolute inset-0 flex flex-col items-center justify-center border border-cyan-500/20 bg-cyan-950/40 gap-3 text-cyan-400 z-0"><Fish className="w-12 h-12" /><span className="text-xs font-medium uppercase opacity-60">Göktürk Petshop</span></div>
+                    <div className="absolute inset-0 flex flex-col items-center justify-center border border-cyan-500/20 bg-cyan-950/40 gap-3 text-cyan-400 z-0"><span className="text-2xl">🐟</span><span className="text-xs font-medium uppercase opacity-60">Göktürk Petshop</span></div>
                   </div>
                   <h3 className="font-bold text-base text-slate-100 group-hover:text-cyan-400">{item}</h3>
                 </div>
@@ -50,10 +49,10 @@ export default function GokturkPetshopSite() {
       {showPopup && (
         <div className="fixed inset-0 bg-black/70 backdrop-blur-md z-50 flex items-center justify-center p-4">
           <div className="bg-[#0c0d21] border border-cyan-500/30 max-w-md w-full rounded-3xl p-6 relative shadow-2xl">
-            <button onClick={() => setShowPopup(false)} className="absolute top-4 right-4 text-slate-400 hover:text-white"><X className="w-5 h-5" /></button>
-            <div className="w-12 h-12 rounded-2xl bg-cyan-500/10 border border-cyan-500/20 flex items-center justify-center text-cyan-400 mb-4"><Sparkles className="w-6 h-6" /></div>
+            <button onClick={() => setShowPopup(false)} className="absolute top-4 right-4 text-slate-400 hover:text-white">✕</button>
+            <div className="w-12 h-12 rounded-2xl bg-cyan-500/10 border border-cyan-500/20 flex items-center justify-center text-cyan-400 mb-4"><span className="text-xl">✨</span></div>
             <h3 className="text-2xl font-black text-white mb-2">Mağazamıza Bekleriz!</h3>
-            <p className="text-sm text-slate-400 mb-6">Göktürk şubemizde akvaryum kurulumları, canlı türleri ve evcil hayvan ürünlerinde özel fırsatlar sizi bekliyor.</p>
+            <p className="text-sm text-slate-400 mb-6">Göktürk şubemizde akvaryum kurulumları, canlı türleri ver evcil hayvan ürünlerinde özel fırsatlar sizi bekliyor.</p>
             <div className="flex gap-3">
               <button onClick={() => setShowPopup(false)} className="flex-1 border border-white/10 bg-white/5 text-xs font-bold py-3 rounded-xl">Kapat</button>
               <a href="https://wa.me" target="_blank" rel="noopener noreferrer" className="flex-1 bg-cyan-500 text-slate-950 text-center text-xs font-bold py-3 rounded-xl">WhatsApp Bilgi Al</a>
@@ -65,7 +64,7 @@ export default function GokturkPetshopSite() {
       <div className="relative overflow-hidden border-b border-white/5 bg-gradient-to-b from-[#0a0c1a] to-[#070814] py-20 md:py-32">
         <div className="px-4 md:px-8 max-w-6xl mx-auto flex flex-col md:flex-row items-center gap-12">
           <div className="flex-1 text-center md:text-left">
-            <div className="inline-flex items-center gap-2 rounded-full border border-cyan-500/30 bg-cyan-500/10 px-4 py-1.5 text-xs font-medium text-cyan-400 mb-6"><Sparkles className="w-3.5 h-3.5" /> Canlı Dostlarınız İçin En İyisi</div>
+            <div className="inline-flex items-center gap-2 rounded-full border border-cyan-500/30 bg-cyan-500/10 px-4 py-1.5 text-xs font-medium text-cyan-400 mb-6">✨ Canlı Dostlarınız İçin En İyisi</div>
             <h1 className="text-4xl md:text-6xl font-black text-white mb-6">Göktürk <span className="bg-gradient-to-r from-cyan-400 via-blue-500 to-indigo-500 bg-clip-text text-transparent">Petshop</span></h1>
             <p className="text-lg text-slate-400 mb-8">Akvaryum dünyasından evcil hayvan aksesuarlarına kadar her şey.</p>
             <div className="flex flex-col sm:flex-row justify-center md:justify-start gap-4">
@@ -78,24 +77,21 @@ export default function GokturkPetshopSite() {
       </div>
 
       <div className="px-4 md:px-8 max-w-6xl mx-auto py-24 grid gap-6 sm:grid-cols-2 lg:grid-cols-3">
-        {cats.map((cat, i) => {
-          const Icon = cat.icon;
-          return (
-            <div key={i} className="rounded-3xl border border-white/10 bg-white/5 p-8 flex flex-col justify-between cursor-pointer hover:border-white/20 transition duration-300" onClick={() => { setPage(cat.id); window.scrollTo({ top: 0, behavior: "smooth" }); }}>
-              <div>
-                <div className={`w-12 h-12 rounded-2xl bg-gradient-to-br flex items-center justify-center text-slate-900 mb-6 ${cat.grad}`}>{React.createElement(Icon, { className: "w-6 h-6" })}</div>
-                <h3 className="text-xl font-bold text-white mb-2">{cat.title}</h3>
-                <p className="text-sm text-slate-400 mb-6">{cat.text}</p>
-              </div>
-              <div className="text-sm font-semibold text-cyan-400 flex items-center gap-1">Çeşitleri İncele <ChevronRight className="w-4 h-4" /></div>
+        {cats.map((cat, i) => (
+          <div key={i} className="rounded-3xl border border-white/10 bg-white/5 p-8 flex flex-col justify-between cursor-pointer hover:border-white/20 transition-all duration-300" onClick={() => { setPage(cat.id); window.scrollTo({ top: 0, behavior: "smooth" }); }}>
+            <div>
+              <div className="w-12 h-12 rounded-2xl bg-white/10 flex items-center justify-center text-xl mb-6">🐾</div>
+              <h3 className="text-xl font-bold text-white mb-2">{cat.title}</h3>
+              <p className="text-sm text-slate-400 mb-6">{cat.text}</p>
             </div>
-          );
-        })}
+            <div className="text-sm font-semibold text-cyan-400 flex items-center gap-1">Çeşitleri İncele ➔</div>
+          </div>
+        ))}
       </div>
 
       <div className="bg-[#090a18] border-y border-white/5 py-24 grid gap-6 grid-cols-2 md:grid-cols-4">
         {["Geniş Ürün Yelpazesi", "Akvaryum Ürünleri", "Kaliteli Ürünler", "Hızlı Teslimat"].map((t, i) => (
-          <div key={i} className="bg-white/5 border border-white/10 rounded-2xl p-6 flex flex-col items-center text-center"><Sparkles className="w-8 h-8 text-cyan-400 mb-4" /><span className="font-semibold text-sm text-slate-200">{t}</span></div>
+          <div key={i} className="bg-white/5 border border-white/10 rounded-2xl p-6 flex flex-col items-center text-center"><span className="text-3xl mb-4">⭐</span><span className="font-semibold text-sm text-slate-200">{t}</span></div>
         ))}
       </div>
 
@@ -104,18 +100,18 @@ export default function GokturkPetshopSite() {
           <h2 className="text-3xl font-extrabold text-white mb-6">Mağazamızı Ziyaret Edin</h2>
           <p className="text-slate-400 mb-8">İstanbul Göktürk'teki sıcak mağazamızda sizi ve minik dostlarınızı ağırlamaktan mutluluk duyarız.</p>
           <div className="space-y-4">
-            <div className="flex gap-4 items-start"><MapPin className="w-5 h-5 text-cyan-400 mt-0.5" /><div><h4 className="font-bold text-white mb-1">Adres</h4><p className="text-sm text-slate-400">Göktürk, İstanbul / Türkiye</p></div></div>
-            <div className="flex gap-4 items-start"><Phone className="w-5 h-5 text-cyan-400 mt-0.5" /><div><h4 className="font-bold text-white mb-1">Telefon / WhatsApp</h4><p className="text-sm text-slate-400">+90 532 559 97 78</p></div></div>
+            <div className="flex gap-4 items-start"><span className="text-xl">📍</span><div><h4 className="font-bold text-white mb-1">Adres</h4><p className="text-sm text-slate-400">Göktürk, İstanbul / Türkiye</p></div></div>
+            <div className="flex gap-4 items-start"><span className="text-xl">📞</span><div><h4 className="font-bold text-white mb-1">Telefon / WhatsApp</h4><p className="text-sm text-slate-400">+90 532 559 97 78</p></div></div>
           </div>
         </div>
         <div className="h-80 w-full bg-slate-900 border border-white/10 rounded-3xl overflow-hidden relative shadow-2xl">
           <a href="https://google.com" target="_blank" rel="noopener noreferrer" className="w-full h-full bg-[#0d0e22] flex flex-col items-center justify-center p-6 text-center gap-4 group hover:bg-[#131535]">
-            <div className="w-16 h-12 rounded-2xl bg-cyan-500/10 border border-cyan-500/20 flex items-center justify-center text-cyan-400 group-hover:scale-110 transition duration-300"><Map className="w-6 h-6" /></div>
+            <div className="w-16 h-12 rounded-2xl bg-cyan-500/10 border border-cyan-500/20 flex items-center justify-center text-xl group-hover:scale-110 transition duration-300">🧭</div>
             <div>
               <h4 className="text-lg font-bold text-white mb-1">Canlı Yol Tarifi</h4>
               <p className="text-xs text-slate-400 max-w-xs mx-auto">Google Haritalar üzerinden dükkanımızın tam konumuna ulaşmak için tıklayın.</p>
             </div>
-            <div className="inline-flex items-center gap-2 bg-cyan-500 text-slate-950 font-bold px-6 py-2.5 text-xs rounded-xl transition duration-200">Haritada Aç <ChevronRight className="w-3.5 h-3.5" /></div>
+            <div className="inline-flex items-center gap-2 bg-cyan-500 text-slate-950 font-bold px-6 py-2.5 text-xs rounded-xl">Haritada Aç ➔</div>
           </a>
         </div>
       </div>
