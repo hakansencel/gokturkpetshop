@@ -1,12 +1,12 @@
 import React, { useState } from "react";
-import { Fish, MapPin, Phone, ChevronRight, Sparkles, Truck, Leaf, Compass } from "lucide-react";
+import { Fish, MapPin, Phone, ChevronRight, Sparkles, Truck, Leaf, Compass, X } from "lucide-react";
 import { cats } from "./data";
 import SubPage from "./SubPage";
 
 export default function GokturkPetshopSite() {
   const [page, setPage] = useState("home");
+  const [showPopup, setShowPopup] = useState(true);
   const active = cats.find(c => c.id === page);
-  const wh = "https://wa.me";
 
   if (page !== "home" && active) {
     return <SubPage active={active} setPage={setPage} />;
@@ -14,6 +14,21 @@ export default function GokturkPetshopSite() {
 
   return (
     <div className="min-h-screen bg-[#070814] text-slate-100 antialiased selection:bg-cyan-500">
+      {showPopup && (
+        <div className="fixed inset-0 bg-black/70 backdrop-blur-md z-50 flex items-center justify-center p-4">
+          <div className="bg-[#0c0d21] border border-cyan-500/30 max-w-md w-full rounded-3xl p-6 relative shadow-2xl">
+            <button onClick={() => setShowPopup(false)} className="absolute top-4 right-4 text-slate-400 hover:text-white transition"><X className="w-5 h-5" /></button>
+            <div className="w-12 h-12 rounded-2xl bg-cyan-500/10 border border-cyan-500/20 flex items-center justify-center text-cyan-400 mb-4"><Sparkles className="w-6 h-6" /></div>
+            <h3 className="text-2xl font-black text-white mb-2">Mağazamıza Bekleriz!</h3>
+            <p className="text-sm text-slate-400 mb-6">Göktürk şubemizde akvaryum kurulumları, canlı türleri ve evcil hayvan ürünlerinde özel fırsatlar sizi bekliyor.</p>
+            <div className="flex gap-3">
+              <button onClick={() => setShowPopup(false)} className="flex-1 border border-white/10 bg-white/5 text-xs font-bold py-3 rounded-xl transition">Kapat</button>
+              <a href="https://wa.me" target="_blank" rel="noopener noreferrer" className="flex-1 bg-cyan-500 text-slate-950 text-center text-xs font-bold py-3 rounded-xl transition">WhatsApp Bilgi Al</a>
+            </div>
+          </div>
+        </div>
+      )}
+
       <div className="relative overflow-hidden border-b border-white/5 bg-gradient-to-b from-[#0a0c1a] to-[#070814] py-20 md:py-32">
         <div className="px-4 md:px-8 max-w-6xl mx-auto flex flex-col md:flex-row items-center gap-12">
           <div className="flex-1 text-center md:text-left">
@@ -21,8 +36,8 @@ export default function GokturkPetshopSite() {
             <h1 className="text-4xl md:text-6xl font-black text-white mb-6">Göktürk <span className="bg-gradient-to-r from-cyan-400 via-blue-500 to-indigo-500 bg-clip-text text-transparent">Petshop</span></h1>
             <p className="text-lg text-slate-400 mb-8">Akvaryum dünyasından evcil hayvan aksesuarlarına kadar her şey.</p>
             <div className="flex flex-col sm:flex-row justify-center md:justify-start gap-4">
-              <a href={wh} target="_blank" rel="noopener noreferrer" className="rounded-2xl bg-cyan-500 text-slate-950 font-bold px-8 py-3 text-sm flex items-center gap-2 w-full sm:w-auto justify-center">İletişime Geçin</a>
-              <a href="https://instagram.com" target="_blank" rel="noopener noreferrer" className="rounded-2xl border border-white/10 bg-white/5 text-white px-8 py-3 text-sm w-full sm:w-auto text-center hover:bg-white/10 transition">Instagram'da Takip Et</a>
+              <a href="https://wa.me" target="_blank" rel="noopener noreferrer" className="rounded-2xl bg-cyan-500 text-slate-950 font-bold px-8 py-3 text-sm flex items-center gap-2 w-full sm:w-auto justify-center">İletişime Geçin</a>
+              <a href="https://instagram.com" target="_blank" rel="noopener noreferrer" className="rounded-2xl border border-white/10 bg-white/5 text-white px-8 py-3 text-sm w-full sm:w-auto text-center">Instagram'da Takip Et</a>
             </div>
           </div>
           <div className="w-48 h-48 md:w-64 md:h-64 rounded-full overflow-hidden border-4 border-white/10 bg-slate-800"><img src="/pet.jpg" alt="Logo" className="w-full h-full object-cover" /></div>
@@ -31,7 +46,7 @@ export default function GokturkPetshopSite() {
 
       <div className="px-4 md:px-8 max-w-6xl mx-auto py-24 grid gap-6 sm:grid-cols-2 lg:grid-cols-3">
         {cats.map((cat, i) => (
-          <div key={i} className="rounded-3xl border border-white/10 bg-white/5 p-8 flex flex-col justify-between cursor-pointer hover:border-white/20 transition-all duration-300" onClick={() => { setPage(cat.id); window.scrollTo({ top: 0, behavior: "smooth" }); }}>
+          <div key={i} className="rounded-3xl border border-white/10 bg-white/5 p-8 flex flex-col justify-between cursor-pointer hover:border-white/20 transition duration-300" onClick={() => { setPage(cat.id); window.scrollTo({ top: 0, behavior: "smooth" }); }}>
             <div>
               <div className={`w-12 h-12 rounded-2xl bg-gradient-to-br flex items-center justify-center text-slate-900 mb-6 ${cat.grad}`}>{React.createElement(cat.icon, { className: "w-6 h-6" })}</div>
               <h3 className="text-xl font-bold text-white mb-2">{cat.title}</h3>
@@ -43,8 +58,8 @@ export default function GokturkPetshopSite() {
       </div>
 
       <div className="bg-[#090a18] border-y border-white/5 py-24 grid gap-6 grid-cols-2 md:grid-cols-4">
-        {[{ i: Sparkles, t: "Geniş Ürün Yelpazesi" }, { i: Fish, t: "Akvaryum Ürünleri" }, { i: Leaf, t: "Kaliteli Ürünler" }, { i: Truck, t: "Hızlı Teslimat" }].map((feat, i) => (
-          <div key={i} className="bg-white/5 border border-white/10 rounded-2xl p-6 flex flex-col items-center">{React.createElement(feat.i, { className: "w-8 h-8 text-cyan-400 mb-4" })}<span className="font-semibold text-sm text-slate-200">{feat.t}</span></div>
+        {["Geniş Ürün Yelpazesi", "Akvaryum Ürünleri", "Kaliteli Ürünler", "Hızlı Teslimat"].map((t, i) => (
+          <div key={i} className="bg-white/5 border border-white/10 rounded-2xl p-6 flex flex-col items-center text-center"><Sparkles className="w-8 h-8 text-cyan-400 mb-4" /><span className="font-semibold text-sm text-slate-200">{t}</span></div>
         ))}
       </div>
 
