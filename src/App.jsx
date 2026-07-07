@@ -31,25 +31,25 @@ export default function App() {
     return `/images/${folder}/${fName}.jpg`; 
   };
 
-  // İÇ SAYFA (ÜRÜNLER LİSTESİ)
+  // İÇ SÜREÇ (ÜRÜNLER LİSTESİ)
   if (page !== "home" && active) {
     return (
-      <div className="min-h-screen bg-[#fdfcf5] text-slate-800 px-4 py-12 md:px-8">
+      <div className="min-h-screen bg-[#0f172a] text-slate-200 px-4 py-12 md:px-8">
         <div className="max-w-6xl mx-auto">
-          <button onClick={() => { setPage("home"); window.scrollTo({ top: 0, behavior: "smooth" }); }} className="mb-8 text-sm font-semibold text-cyan-700 hover:text-cyan-800 hover:underline transition">← Ana Sayfaya Dön</button>
-          <h1 className="text-3xl font-black mb-2 text-slate-950">{active.title}</h1>
-          <p className="text-slate-600 mb-10 leading-relaxed">Göktürk Petshop güvencesiyle aradığınız tüm türler ver ürünler.</p>
+          <button onClick={() => { setPage("home"); window.scrollTo({ top: 0, behavior: "smooth" }); }} className="mb-8 text-sm font-semibold text-cyan-400 hover:text-cyan-300 hover:underline transition">← Ana Sayfaya Dön</button>
+          <h1 className="text-3xl font-black mb-2 text-white">{active.title}</h1>
+          <p className="text-slate-400 mb-10 leading-relaxed">Göktürk Petshop güvencesiyle aradığınız tüm türler ve ürünler.</p>
           <div className="grid gap-6 grid-cols-2 md:grid-cols-3 lg:grid-cols-4">
             {active.items.map((item, idx) => (
-              <div key={idx} className="bg-white border border-slate-200/60 rounded-3xl p-4 flex flex-col justify-between hover:shadow-2xl hover:border-cyan-500/30 transition duration-300 group shadow-sm">
+              <div key={idx} className="bg-slate-800/60 border border-slate-700/60 rounded-3xl p-4 flex flex-col justify-between hover:shadow-2xl hover:border-cyan-500/40 transition duration-300 group shadow-lg backdrop-blur-sm">
                 <div>
-                  <div className="w-full h-44 mb-3 rounded-2xl overflow-hidden relative bg-slate-100">
+                  <div className="w-full h-44 mb-3 rounded-2xl overflow-hidden relative bg-slate-900">
                     <img src={getUrl(item, active.folder)} alt={item} className="w-full h-full object-cover relative z-10" onError={(e) => { e.target.style.display = 'none'; }} />
-                    <div className="absolute inset-0 flex flex-col items-center justify-center border border-slate-200 bg-slate-50 gap-3 text-cyan-600 z-0"><span className="text-2xl">🐾</span><span className="text-xs font-bold uppercase opacity-60 tracking-wider">Göktürk Petshop</span></div>
+                    <div className="absolute inset-0 flex flex-col items-center justify-center border border-slate-700/50 bg-slate-800 gap-3 text-cyan-400 z-0"><span className="text-2xl">🐾</span><span className="text-xs font-bold uppercase opacity-60 tracking-wider">Göktürk Petshop</span></div>
                   </div>
-                  <h3 className="font-bold text-base text-slate-800 group-hover:text-cyan-600 transition">{item}</h3>
+                  <h3 className="font-bold text-base text-slate-100 group-hover:text-cyan-400 transition">{item}</h3>
                 </div>
-                <a href={getWhatsAppLink(`Merhaba, ${active.title} kategorisindeki "${item}" ürünü/canlısı hakkında fiyat ve stok bilgisi alabilir miyim?`)} target="_blank" rel="noopener noreferrer" className="mt-4 w-full text-center bg-cyan-50 text-cyan-600 py-2.5 px-3 rounded-xl text-xs font-bold hover:bg-cyan-500 hover:text-white transition-all duration-300">Fiyat Sor</a>
+                <a href={getWhatsAppLink(`Merhaba, ${active.title} kategorisindeki "${item}" ürünü/canlısı hakkında fiyat ve stok bilgisi alabilir miyim?`)} target="_blank" rel="noopener noreferrer" className="mt-4 w-full text-center bg-cyan-950/40 text-cyan-400 border border-cyan-800/40 py-2.5 px-3 rounded-xl text-xs font-bold hover:bg-cyan-500 hover:text-white transition-all duration-300">Fiyat Sor</a>
               </div>
             ))}
           </div>
@@ -60,58 +60,58 @@ export default function App() {
 
   // ANA SAYFA
   return (
-    <div className="min-h-screen bg-[#fdfcf5] text-slate-800 antialiased selection:bg-cyan-500 selection:text-white">
+    <div className="min-h-screen bg-[#0f172a] text-slate-300 antialiased selection:bg-cyan-500 selection:text-white">
       
       {/* POPUP RESMİ */}
       {showPopup && (
-        <div className="fixed inset-0 bg-black/70 backdrop-blur-sm z-[200] flex items-center justify-center p-4 overflow-y-auto">
+        <div className="fixed inset-0 bg-black/80 backdrop-blur-sm z-[200] flex items-center justify-center p-4 overflow-y-auto">
           <div className="absolute inset-0" onClick={() => setShowPopup(false)}></div>
           <div className="relative z-10 my-auto animate-in fade-in zoom-in-95 duration-300">
-            <img src="/popup-image.jpg" alt="Özel Fırsat Popup" className="max-w-full max-h-[85vh] h-auto w-auto rounded-3xl shadow-2xl border-4 border-white object-contain" onError={() => setShowPopup(false)} />
-            <button onClick={() => setShowPopup(false)} className="absolute -top-3 -right-3 w-10 h-10 rounded-full bg-cyan-500 text-white flex items-center justify-center text-lg font-black shadow-lg hover:bg-cyan-600 transition cursor-pointer z-20 border-2 border-white">✕</button>
+            <img src="/popup-image.jpg" alt="Özel Fırsat Popup" className="max-w-full max-h-[85vh] h-auto w-auto rounded-3xl shadow-2xl border-4 border-slate-800 object-contain" onError={() => setShowPopup(false)} />
+            <button onClick={() => setShowPopup(false)} className="absolute -top-3 -right-3 w-10 h-10 rounded-full bg-cyan-500 text-white flex items-center justify-center text-lg font-black shadow-lg hover:bg-cyan-600 transition cursor-pointer z-20 border-2 border-slate-800">✕</button>
           </div>
         </div>
       )}
 
       {/* HERO (GİRİŞ KAPAK ALANI) */}
-      <div className="relative overflow-hidden border-b border-slate-100 bg-gradient-to-b from-cyan-50/50 to-[#fdfcf5] py-20 md:py-32">
+      <div className="relative overflow-hidden border-b border-slate-800 bg-gradient-to-b from-slate-900 to-[#0f172a] py-20 md:py-32">
         <div className="px-4 md:px-8 max-w-6xl mx-auto flex flex-col md:flex-row items-center gap-12">
           <div className="flex-1 text-center md:text-left">
-            <div className="inline-flex items-center gap-2 rounded-full border border-cyan-200 bg-cyan-50 px-4 py-1.5 text-xs font-bold text-cyan-600 mb-6 shadow-sm">✨ Canlı Dostlarınız İçin En İyisi</div>
-            <h1 className="text-4xl md:text-6xl font-black text-slate-950 mb-6">Göktürk <span className="text-cyan-600">Petshop</span></h1>
-            <p className="text-lg text-slate-600 mb-8 max-w-mdleading-relaxed">Akvaryum dünyasından evcil hayvan aksesuarlarına kadar aradığınız her şey.</p>
+            <div className="inline-flex items-center gap-2 rounded-full border border-cyan-500/20 bg-cyan-950/40 px-4 py-1.5 text-xs font-bold text-cyan-400 mb-6 shadow-sm">✨ Canlı Dostlarınız İçin En İyisi</div>
+            <h1 className="text-4xl md:text-6xl font-black text-white mb-6">Göktürk <span className="text-cyan-400">Petshop</span></h1>
+            <p className="text-lg text-slate-400 mb-8 max-w-md leading-relaxed">Akvaryum dünyasından evcil hayvan aksesuarlarına kadar aradığınız her şey.</p>
             <div className="flex flex-col sm:flex-row justify-center md:justify-start gap-4">
-              <a href={getWhatsAppLink("Merhaba Göktürk Petshop, sizinle iletişime geçmek istiyorum.")} target="_blank" rel="noopener noreferrer" className="rounded-2xl bg-cyan-500 text-white font-bold px-8 py-3.5 text-sm flex items-center gap-2 w-full sm:w-auto justify-center hover:bg-cyan-600 shadow-md hover:shadow-lg transition cursor-pointer">İletişime Geçin</a>
-              <a href="https://instagram.com" target="_blank" rel="noopener noreferrer" className="rounded-2xl border border-slate-200 bg-white text-slate-600 font-bold px-8 py-3.5 text-sm w-full sm:w-auto text-center hover:bg-slate-50 transition shadow-sm hover:shadow-md">Instagram'da Takip Et</a>
+              <a href={getWhatsAppLink("Merhaba Göktürk Petshop, sizinle iletişime geçmek istiyorum.")} target="_blank" rel="noopener noreferrer" className="rounded-2xl bg-cyan-500 text-white font-bold px-8 py-3.5 text-sm flex items-center gap-2 w-full sm:w-auto justify-center hover:bg-cyan-600 shadow-lg transition cursor-pointer">İletişime Geçin</a>
+              <a href="https://instagram.com" target="_blank" rel="noopener noreferrer" className="rounded-2xl border border-slate-700 bg-slate-800/40 text-slate-300 font-bold px-8 py-3.5 text-sm w-full sm:w-auto text-center hover:bg-slate-800 transition shadow-sm">Instagram'da Takip Et</a>
             </div>
           </div>
-          <div className="w-48 h-48 md:w-64 md:h-64 rounded-full overflow-hidden border-4 border-white bg-white shadow-xl"><img src="/pet.jpg" alt="Logo" className="w-full h-full object-cover" /></div>
+          <div className="w-48 h-48 md:w-64 md:h-64 rounded-full overflow-hidden border-4 border-slate-800 bg-slate-900 shadow-2xl"><img src="/pet.jpg" alt="Logo" className="w-full h-full object-cover" /></div>
         </div>
       </div>
 
-      {/* KATEGORİ KARTLARI (GERÇEK KAPAKLARLA) */}
+      {/* KATEGORİ KARTLARI (YÜKLEDİĞİN RESİMLERİ ARAR) */}
       <div className="px-4 md:px-8 max-w-6xl mx-auto py-20 grid gap-6 sm:grid-cols-2 lg:grid-cols-3">
         {cats.map((cat, i) => (
-          <div key={i} className="rounded-3xl border border-slate-200/50 bg-white p-5 flex flex-col justify-between cursor-pointer hover:border-cyan-500/40 hover:shadow-xl transition-all duration-300 group shadow-sm" onClick={() => { setPage(cat.id); window.scrollTo({ top: 0, behavior: "smooth" }); }}>
+          <div key={i} className="rounded-3xl border border-slate-800 bg-slate-800/40 p-5 flex flex-col justify-between cursor-pointer hover:border-cyan-500/30 hover:shadow-2xl transition-all duration-300 group shadow-md backdrop-blur-sm" onClick={() => { setPage(cat.id); window.scrollTo({ top: 0, behavior: "smooth" }); }}>
             <div>
-              <div className="w-full h-44 rounded-2xl overflow-hidden mb-5 bg-slate-50 border border-slate-100 relative">
+              <div className="w-full h-44 rounded-2xl overflow-hidden mb-5 bg-slate-900 border border-slate-800 relative">
                 <img src={cat.cover} alt={cat.title} className="w-full h-full object-cover group-hover:scale-105 transition duration-500" onError={(e) => { e.target.src = "/pet.jpg"; }} />
               </div>
-              <h3 className="text-xl font-black text-slate-900 mb-2 group-hover:text-cyan-600 transition">{cat.title}</h3>
-              <p className="text-sm text-slate-600 mb-6 leading-relaxed">{cat.text}</p>
+              <h3 className="text-xl font-black text-white mb-2 group-hover:text-cyan-400 transition">{cat.title}</h3>
+              <p className="text-sm text-slate-400 mb-6 leading-relaxed">{cat.text}</p>
             </div>
-            <div className="text-sm font-bold text-cyan-600 flex items-center gap-1 group-hover:gap-2 transition-all">Çeşitleri İncele ➔</div>
+            <div className="text-sm font-bold text-cyan-400 flex items-center gap-1 group-hover:gap-2 transition-all">Çeşitleri İncele ➔</div>
           </div>
         ))}
       </div>
 
       {/* ÖZELLİKLER ŞERİDİ */}
-      <div className="bg-white border-y border-slate-100 py-12">
+      <div className="bg-slate-900/60 border-y border-slate-800 py-12 backdrop-blur-sm">
         <div className="max-w-6xl mx-auto px-4 grid gap-6 grid-cols-2 md:grid-cols-4">
           {["Geniş Ürün Yelpazesi", "Akvaryum Ürünleri", "Kaliteli Markalar", "Hızlı Teslimat"].map((t, i) => (
-            <div key={i} className="bg-slate-50 border border-slate-100 rounded-2xl p-5 flex flex-col items-center text-center shadow-sm">
+            <div key={i} className="bg-slate-800/30 border border-slate-800/80 rounded-2xl p-5 flex flex-col items-center text-center shadow-md">
               <span className="text-3xl mb-3">⭐</span>
-              <span className="font-bold text-sm text-slate-700">{t}</span>
+              <span className="font-bold text-sm text-slate-300">{t}</span>
             </div>
           ))}
         </div>
@@ -120,25 +120,25 @@ export default function App() {
       {/* İLETİŞİM & HARİTA BÖLÜMÜ */}
       <div className="px-4 md:px-8 max-w-6xl mx-auto py-24 grid gap-12 md:grid-cols-2 items-center">
         <div>
-          <h2 className="text-3xl font-black text-slate-900 mb-6">Mağazamızı Ziyaret Edin</h2>
-          <p className="text-slate-600 mb-8 leading-relaxed">İstanbul Göktürk'teki sıcak mağazamızda sizi ve minik dostlarınızı ağırlamaktan mutluluk duyarız.</p>
+          <h2 className="text-3xl font-black text-white mb-6">Mağazamızı Ziyaret Edin</h2>
+          <p className="text-slate-400 mb-8 leading-relaxed">İstanbul Göktürk'teki sıcak mağazamızda sizi ve minik dostlarınızı ağırlamaktan mutluluk duyarız.</p>
           <div className="space-y-5">
             <div className="flex gap-4 items-start">
-              <span className="text-xl bg-cyan-50 text-cyan-600 p-2.5 rounded-xl border border-cyan-100">📍</span>
-              <div><h4 className="font-bold text-slate-800 mb-0.5">Adres</h4><p className="text-sm text-slate-600 leading-relaxed">Göktürk Merkez Mh. Göktürk Cd. No: 42, Eyüpsultan / İstanbul</p></div>
+              <span className="text-xl bg-cyan-950 text-cyan-400 p-2.5 rounded-xl border border-cyan-900/50">📍</span>
+              <div><h4 className="font-bold text-white mb-0.5">Adres</h4><p className="text-sm text-slate-400 leading-relaxed">Göktürk Merkez Mh. Göktürk Cd. No: 42, Eyüpsultan / İstanbul</p></div>
             </div>
             <div className="flex gap-4 items-start">
-              <span className="text-xl bg-green-50 text-green-600 p-2.5 rounded-xl border border-green-100">📞</span>
-              <div><h4 className="font-bold text-slate-800 mb-0.5">Telefon / WhatsApp</h4><p className="text-sm text-slate-600leading-relaxed">+90 532 559 97 78</p></div>
+              <span className="text-xl bg-green-950 text-green-400 p-2.5 rounded-xl border border-green-900/50">📞</span>
+              <div><h4 className="font-bold text-white mb-0.5">Telefon / WhatsApp</h4><p className="text-sm text-slate-400 leading-relaxed">+90 532 559 97 78</p></div>
             </div>
           </div>
         </div>
-        <div className="h-80 w-full bg-slate-50 border border-slate-200 rounded-3xl overflow-hidden relative shadow-lg hover:shadow-xl transition-all duration-300">
-          <a href="http://googleusercontent.com/maps.google.com/5" target="_blank" rel="noopener noreferrer" className="w-full h-full bg-slate-50 flex flex-col items-center justify-center p-6 text-center gap-4 group hover:bg-slate-100/70 transition">
-            <div className="w-16 h-12 rounded-2xl bg-cyan-50 border border-cyan-100 flex items-center justify-center text-xl group-hover:scale-110 transition duration-300 text-cyan-600">🧭</div>
+        <div className="h-80 w-full bg-slate-900 border border-slate-800 rounded-3xl overflow-hidden relative shadow-2xl">
+          <a href="https://maps.google.com" target="_blank" rel="noopener noreferrer" className="w-full h-full bg-slate-900 flex flex-col items-center justify-center p-6 text-center gap-4 group hover:bg-slate-850 transition">
+            <div className="w-16 h-12 rounded-2xl bg-cyan-950 border border-cyan-900 flex items-center justify-center text-xl group-hover:scale-110 transition duration-300 text-cyan-400">🧭</div>
             <div>
-              <h4 className="text-lg font-bold text-slate-800 mb-1">Canlı Yol Tarifi</h4>
-              <p className="text-xs text-slate-600 max-w-xs mx-auto leading-relaxed">Google Haritalar üzerinden dükkanımızın tam konumuna ulaşmak için tıklayın.</p>
+              <h4 className="text-lg font-bold text-white mb-1">Canlı Yol Tarifi</h4>
+              <p className="text-xs text-slate-400 max-w-xs mx-auto leading-relaxed">Google Haritalar üzerinden dükkanımızın tam konumuna ulaşmak için tıklayın.</p>
             </div>
             <div className="inline-flex items-center gap-2 bg-cyan-500 text-white font-bold px-6 py-2.5 text-xs rounded-xl shadow-md group-hover:shadow-lg transition">Haritada Aç ➔</div>
           </a>
@@ -146,7 +146,7 @@ export default function App() {
       </div>
 
       {/* FOOTER */}
-      <footer className="border-t border-slate-200/60 bg-white py-8 text-center text-xs font-semibold text-slate-400"><p>© 2026 Göktürk Petshop. Tüm Hakları Saklıdır.</p></footer>
+      <footer className="border-t border-slate-800 bg-slate-950/40 py-8 text-center text-xs font-semibold text-slate-500"><p>© 2026 Göktürk Petshop. Tüm Hakları Saklıdır.</p></footer>
     </div>
   );
 }
