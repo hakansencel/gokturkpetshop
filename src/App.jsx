@@ -73,40 +73,36 @@ export default function App() {
         </div>
       )}
 
-      {/* HERO (GÜNCELLENDİ: AYDINLIK VE GERÇEK BİTKİLİ NANO AKVARYUM ARKA PLANI) */}
-      <div className="relative border-b border-slate-800/60 bg-[#070b12] py-24 md:py-32 overflow-hidden">
-        {/* Arka Plan Görsel Katmanı - Opaklık %65'e yükseltilerek AYDINLATILDI */}
-        <div className="absolute inset-0 z-0">
-          <img 
-            src="https://images.unsplash.com/photo-1546026423-cc4642628d2b?w=1600&auto=format&fit=crop&q=80" 
-            alt="Gerçek Canlı Bitkili Akvaryum Tasarımı" 
-            className="w-full h-full object-cover opacity-65 pointer-events-none filter contrast-105 brightness-105"
-          />
-          {/* Yumuşatılmış degrade geçişleri */}
-          <div className="absolute inset-0 bg-gradient-to-r from-[#0f172a]/95 via-[#0f172a]/70 to-transparent"></div>
-          <div className="absolute inset-0 bg-gradient-to-t from-[#0f172a] via-transparent to-[#070b12]/50"></div>
-        </div>
-
-        {/* Hero İçeriği */}
-        <div className="relative z-10 px-4 md:px-8 max-w-6xl mx-auto flex flex-col md:flex-row items-center justify-between gap-12">
-          {/* Yazı alanı arkasına netlik için cam efekti (backdrop-blur) eklendi */}
-          <div className="flex-1 text-center md:text-left backdrop-blur-md bg-slate-950/30 p-6 md:p-8 rounded-3xl border border-slate-800/40">
-            <h1 className="text-4xl md:text-6xl font-serif font-bold text-white mb-5 tracking-wide drop-shadow-lg">
+      {/* HERO (KÖKLÜ DEĞİŞİKLİK: ARKA PLAN YAZI ÇAKIŞMALARI BİTTİ, GÖRSEL SAĞA ALINDI) */}
+      <div className="border-b border-slate-800/60 bg-[#0b0f19] py-16 md:py-24">
+        <div className="px-4 md:px-8 max-w-6xl mx-auto flex flex-col md:flex-row items-center gap-12 justify-between">
+          
+          {/* Sol Taraf: Tamamen Sade ve Net Yazı Alanı (Kutu falan yok, tertemiz zemin) */}
+          <div className="flex-1 text-center md:text-left">
+            <h1 className="text-4xl md:text-6xl font-serif font-bold text-white mb-5 tracking-wide">
               Göktürk <span className="text-cyan-400">Petshop</span>
             </h1>
-            <p className="text-sm md:text-base text-slate-200 font-medium mb-8 max-w-md leading-relaxed drop-shadow">
+            <p className="text-base text-slate-400 font-medium mb-8 max-w-md leading-relaxed">
               Akvaryum dünyasından evcil hayvan aksesuarlarına kadar aradığınız her şey.
             </p>
             <div className="flex flex-col sm:flex-row justify-center md:justify-start gap-4">
               <a href={getWhatsAppLink("Merhaba Göktürk Petshop, sizinle iletişime geçmek istiyorum.")} target="_blank" rel="noopener noreferrer" className="rounded-2xl bg-cyan-500 text-white font-bold px-8 py-3.5 text-sm flex items-center gap-2 w-full sm:w-auto justify-center hover:bg-cyan-600 shadow-xl transition-all duration-300 hover:-translate-y-0.5 cursor-pointer">İletişime Geçin</a>
-              <a href="https://instagram.com" target="_blank" rel="noopener noreferrer" className="rounded-2xl border border-slate-700 bg-slate-900/60 text-slate-200 font-bold px-8 py-3.5 text-sm w-full sm:w-auto text-center hover:bg-slate-800/80 transition shadow-sm">Instagram'da Takip Et</a>
+              <a href="https://instagram.com" target="_blank" rel="noopener noreferrer" className="rounded-2xl border border-slate-800 bg-slate-900/40 text-slate-300 font-bold px-8 py-3.5 text-sm w-full sm:w-auto text-center hover:bg-slate-800/80 transition shadow-sm">Instagram'da Takip Et</a>
             </div>
           </div>
           
-          {/* Minimalist ve Küçük Logo */}
-          <div className="w-40 h-40 rounded-full overflow-hidden border-4 border-slate-800/90 bg-[#161e2e] shadow-2xl relative z-20 group hover:border-cyan-500/40 transition-all duration-500 md:mr-4 flex-shrink-0">
-            <img src="/pet.jpg" alt="Logo" className="w-full h-full object-cover group-hover:scale-105 transition duration-500" />
+          {/* Sağ Taraf: Sınırları Belli, Profesyonel Büyük Görsel Alanı (Arka planda değil, bağımsız) */}
+          <div className="w-full md:w-[420px] h-64 md:h-80 rounded-3xl overflow-hidden border border-slate-800 bg-slate-900 shadow-2xl relative group">
+            <img 
+              src="https://images.unsplash.com/photo-1544551763-46a013bb70d5?w=800&auto=format&fit=crop&q=80" 
+              alt="Göktürk Akvaryum Showroom" 
+              className="w-full h-full object-cover group-hover:scale-103 transition duration-500"
+              onError={(e) => { e.target.src = "/pet.jpg"; }} 
+            />
+            {/* Görsele derinlik katan hafif alt gölge */}
+            <div className="absolute inset-0 bg-gradient-to-t from-black/40 via-transparent to-transparent pointer-events-none"></div>
           </div>
+
         </div>
       </div>
 
