@@ -1,5 +1,5 @@
 import React, { useState } from "react";
-import { Fish, MapPin, Phone, ChevronRight, Sparkles, Truck, Leaf, Cat, Dog, Bird, Shell, Map } from "lucide-react";
+import { Fish, MapPin, Phone, ChevronRight, Sparkles, Truck, Leaf, Cat, Dog, Bird, Shell, Compass } from "lucide-react";
 
 const cats = [
   { id: "freshwater", icon: Fish, title: "Tatlı Su Balıkları", text: "Melek balığı, diskus ve neon tetra.", grad: "from-cyan-100 to-blue-200", items: ["Lepistes", "Beta Balığı", "Japon Balığı", "Melek Balığı", "Discus", "Neon Tetra", "Kardinal Tetra", "Siyah Neon Tetra", "Rasbora", "Moli", "Plati", "Kılıç Kuyruk", "Gurami", "Cüce Vatoz", "Çöpçü Balığı", "Elma Salyangozu"] },
@@ -7,10 +7,8 @@ const cats = [
   { id: "cats", icon: Cat, title: "Kedi Ürünleri", text: "Mama, kum, oyuncak ve aksesuarlar.", grad: "from-orange-100 to-amber-200", items: ["Kedi Mamaları", "Yaş Mama", "Kedi Kumu", "Kum Kabı", "Tırmalama Tahtası", "Kedi Oyuncakları", "Kedi Tasmaları", "Taşıma Çantası", "Kedi Yatakları"] },
   { id: "dogs", icon: Dog, title: "Köpek Ürünleri", text: "Tasma, mama, yatak ve bakım ürünleri.", grad: "from-yellow-100 to-orange-200", items: ["Köpek Mamaları", "Ödül Mamaları", "Köpek Tasmaları", "Gezdirme Kayışları", "Köpek Oyuncakları", "Köpek Yatakları", "Şampuan ve Bakım"] },
   { id: "birds", icon: Bird, title: "Kuş Çeşitleri", text: "Kafes, yem ve kuş aksesuarları.", grad: "from-lime-100 to-green-200", items: ["Muhabbet Kuşu", "Kanarya", "Sultan Papağanı", "Cennet Papağanı", "Sevda Papağanı", "Hint Bülbülü", "Zebra İspinozu", "Kafes ve Yem"] },
-  { id: "reptiles", icon: Shell, title: "Sürüngenler", text: "Teraryum, ısıtıcı og ekipmanlar.", grad: "from-emerald-100 to-stone-200", items: ["Leopard Gecko", "Crested Gecko", "Sakallı Ejder", "Bukalemun", "Yeşil İguana", "Mısır Yılanı", "Top Piton", "Su Kaplumbağası"] }
+  { id: "reptiles", icon: Shell, title: "Sürüngenler", text: "Teraryum, ısıtıcı ve ekipmanlar.", grad: "from-emerald-100 to-stone-200", items: ["Leopard Gecko", "Crested Gecko", "Sakallı Ejder", "Bukalemun", "Yeşil İguana", "Mısır Yılanı", "Top Piton", "Su Kaplumbağası"] }
 ];
-
-const wh = "https://wa.me.";
 
 export default function GokturkPetshopSite() {
   const [page, setPage] = useState("home");
@@ -20,7 +18,6 @@ export default function GokturkPetshopSite() {
     const fName = item.replace(/Ç/g, "c").replace(/ç/g, "c").replace(/Ğ/g, "g").replace(/ğ/g, "g").replace(/I/g, "i").replace(/ı/g, "i").replace(/İ/g, "i").replace(/Ö/g, "o").replace(/ö/g, "o").replace(/Ş/g, "s").replace(/ş/g, "s").replace(/Ü/g, "u").replace(/ü/g, "u").toLowerCase().trim().replace(/[^a-z0-9\s-]/g, "").replace(/\s+/g, "-").replace(/-+/g, "-");
     return `/baliklar/${fName}.jpg`;
   };
-
   if (page !== "home" && active) {
     return (
       <div className="min-h-screen bg-[#070814] text-white px-4 py-12 md:px-8">
@@ -38,7 +35,7 @@ export default function GokturkPetshopSite() {
                   </div>
                   <h3 className="font-bold text-base text-slate-100 group-hover:text-cyan-400">{item}</h3>
                 </div>
-                <a href={wh} target="_blank" rel="noreferrer" className="mt-4 w-full text-center bg-cyan-500/10 hover:bg-cyan-500 text-cyan-400 hover:text-white text-xs font-semibold py-2 px-3 rounded-xl transition">Fiyat Sor</a>
+                <a href="https://wa.me" target="_blank" rel="noopener noreferrer" className="mt-4 w-full text-center bg-cyan-500/10 hover:bg-cyan-500 text-cyan-400 hover:text-white text-xs font-semibold py-2 px-3 rounded-xl transition">Fiyat Sor</a>
               </div>
             ))}
           </div>
@@ -55,8 +52,8 @@ export default function GokturkPetshopSite() {
             <h1 className="text-4xl md:text-6xl font-black text-white mb-6">Göktürk <span className="bg-gradient-to-r from-cyan-400 via-blue-500 to-indigo-500 bg-clip-text text-transparent">Petshop</span></h1>
             <p className="text-lg text-slate-400 mb-8">Akvaryum dünyasından evcil hayvan aksesuarlarına kadar her şey.</p>
             <div className="flex flex-col sm:flex-row justify-center md:justify-start gap-4">
-              <a href={wh} target="_blank" rel="noreferrer"><button className="rounded-2xl bg-cyan-500 text-slate-950 font-bold px-8 py-3 text-sm flex items-center gap-2 w-full sm:w-auto"><Phone className="w-4 h-4 fill-current inline mr-2"/>İletişime Geçin</button></a>
-              <a href="https://instagram.com" target="_blank" rel="noreferrer"><button className="rounded-2xl border border-white/10 bg-white/5 text-white px-8 py-3 text-sm w-full sm:w-auto">Instagram'da Takip Et</button></a>
+              <a href="https://wa.me" target="_blank" rel="noopener noreferrer" className="rounded-2xl bg-cyan-500 text-slate-950 font-bold px-8 py-3 text-sm flex items-center gap-2 w-full sm:w-auto justify-center">İletişime Geçin</a>
+              <a href="https://instagram.com" target="_blank" rel="noopener noreferrer" className="rounded-2xl border border-white/10 bg-white/5 text-white px-8 py-3 text-sm w-full sm:w-auto text-center hover:bg-white/10 transition">Instagram'da Takip Et</a>
             </div>
           </div>
           <div className="w-48 h-48 md:w-64 md:h-64 rounded-full overflow-hidden border-4 border-white/10 bg-slate-800"><img src="/pet.jpg" alt="Logo" className="w-full h-full object-cover" /></div>
@@ -65,7 +62,7 @@ export default function GokturkPetshopSite() {
 
       <div className="px-4 md:px-8 max-w-6xl mx-auto py-24 grid gap-6 sm:grid-cols-2 lg:grid-cols-3">
         {cats.map((cat, i) => (
-          <div key={i} className="rounded-3xl border border-white/10 bg-white/5 p-8 flex flex-col justify-between cursor-pointer hover:border-white/20 transition-all duration-300" onClick={() => { setPage(cat.id); scr(); }}>
+          <div key={i} className="rounded-3xl border border-white/10 bg-white/5 p-8 flex flex-col justify-between cursor-pointer hover:border-white/20 transition-all duration-300" onClick={() => { setPage(cat.id); window.scrollTo({ top: 0, behavior: "smooth" }); }}>
             <div>
               <div className={`w-12 h-12 rounded-2xl bg-gradient-to-br flex items-center justify-center text-slate-900 mb-6 ${cat.grad}`}>{React.createElement(cat.icon, { className: "w-6 h-6" })}</div>
               <h3 className="text-xl font-bold text-white mb-2">{cat.title}</h3>
@@ -92,14 +89,9 @@ export default function GokturkPetshopSite() {
           </div>
         </div>
         <div className="h-80 w-full bg-slate-900 border border-white/10 rounded-3xl overflow-hidden relative shadow-2xl">
-          {/* Tarayıcıların ve kütüphanelerin asla engelleyemeyeceği, doğrudan uygulamaları tetikleyen resmi Google Maps linki */}
-          <a 
-            href="https://google.com" 
-            target="_blank" 
-            rel="noreferrer" 
-            className="w-full h-full bg-[#0d0e22] flex flex-col items-center justify-center p-6 text-center gap-4 group hover:bg-[#131535]"
-          >
-            <div className="w-16 h-12 rounded-2xl bg-cyan-500/10 border border-cyan-500/20 flex items-center justify-center text-cyan-400 group-hover:scale-110 transition duration-300"><Map className="w-6 h-6" /></div>
+          {/* Çakışma yaratan Map ikonu kaldırıldı, yerine %100 çalışan Compass ikonu ve resmi Google Yol Tarifi API linki eklendi */}
+          <a href="https://google.com" target="_blank" rel="noopener noreferrer" className="w-full h-full bg-[#0d0e22] flex flex-col items-center justify-center p-6 text-center gap-4 group hover:bg-[#131535]">
+            <div className="w-16 h-12 rounded-2xl bg-cyan-500/10 border border-cyan-500/20 flex items-center justify-center text-cyan-400 group-hover:scale-110 transition duration-300"><Compass className="w-6 h-6" /></div>
             <div>
               <h4 className="text-lg font-bold text-white mb-1">Canlı Yol Tarifi</h4>
               <p className="text-xs text-slate-400 max-w-xs mx-auto">Google Haritalar üzerinden dükkanımızın tam konumuna ulaşmak için tıklayın.</p>
