@@ -1,13 +1,13 @@
 import React, { useState, useEffect } from "react";
 
-// KATEGORİLER VE SENİN YÜKLEDİĞİN ÖZGÜN RESİMLER (KENDİ RESİMLERİN)
+// KATEGORİ SIRALAMASI: TATLI SU -> TUZLU SU -> KUŞ -> SÜRÜNGEN -> KEDİ -> KÖPEK
 const cats = [
   { id: "freshwater", title: "Tatlı Su Balıkları", text: "Melek balığı, diskus ve neon tetra.", grad: "from-cyan-100 to-blue-200", folder: "baliklar", cover: "/images/covers/freshwater.jpg", items: ["Lepistes", "Beta Balığı", "Japon Balığı", "Melek Balığı", "Discus", "Neon Tetra", "Kardinal Tetra", "Siyah Neon Tetra", "Rasbora", "Moli", "Plati", "Kılıç Kuyruk", "Gurami", "Cüce Vatoz", "Çöpçü Balığı", "Elma Salyangozu"] },
   { id: "saltwater", title: "Tuzlu Su Balıkları", text: "Palyaço balığı, aslan balığı ve mercanlar.", grad: "from-blue-100 to-teal-200", folder: "baliklar", cover: "/images/covers/saltwater.jpg", items: ["Palyaço Balığı", "Blue Tang", "Yellow Tang", "Aslan Balığı", "Melek Balığı", "Kelebek Balığı", "Gobies", "Blenny", "Damselfish", "Karides", "Mercan Çeşitleri", "Anemon"] },
-  { id: "cats", title: "Kedi Ürünleri", text: "Mama, kum, oyuncak ve aksesuarlar.", grad: "from-orange-100 to-amber-200", folder: "kediler", cover: "/images/covers/cats.jpg", items: ["Kedi Mamaları", "Yaş Mama", "Kedi Kumu", "Kum Kabı", "Tırmalama Tahtası", "Kedi Oyuncakları", "Kedi Tasmaları", "Taşıma Çantası", "Kedi Yatakları"] },
-  { id: "dogs", title: "Köpek Ürünleri", text: "Tasma, mama, yatak ve bakım ürünleri.", grad: "from-yellow-100 to-orange-200", folder: "kopekler", cover: "/images/covers/dogs.jpg", items: ["Köpek Mamaları", "Ödül Mamaları", "Köpek Tasmaları", "Gezdirme Kayışları", "Köpek Oyuncakları", "Köpek Yatakları", "Şampuan ve Bakım"] },
   { id: "birds", title: "Kuş Çeşitleri", text: "Kafes, yem ve kuş aksesuarları.", grad: "from-lime-100 to-green-200", folder: "kuslar", cover: "/images/covers/birds.jpg", items: ["Muhabbet Kuşu", "Kanarya", "Sultan Papağanı", "Cennet Papağanı", "Sevda Papağanı", "Hint Bülbülü", "Zebra İspinozu", "Kafes ve Yem"] },
-  { id: "reptiles", title: "Sürüngenler", text: "Teraryum, ısıtıcı ve ekipmanlar.", grad: "from-emerald-100 to-stone-200", folder: "surengenler", cover: "/images/covers/reptiles.jpg", items: ["Leopard Gecko", "Crested Gecko", "Sakallı Ejder", "Bukalemun", "Yeşil İguana", "Mısır Yılanı", "Top Piton", "Su Kaplumbağası"] }
+  { id: "reptiles", title: "Sürüngenler", text: "Teraryum, ısıtıcı ve ekipmanlar.", grad: "from-emerald-100 to-stone-200", folder: "surengenler", cover: "/images/covers/reptiles.jpg", items: ["Leopard Gecko", "Crested Gecko", "Sakallı Ejder", "Bukalemun", "Yeşil İguana", "Mısır Yılanı", "Top Piton", "Su Kaplumbağası"] },
+  { id: "cats", title: "Kedi Ürünleri", text: "Mama, kum, oyuncak ve aksesuarlar.", grad: "from-orange-100 to-amber-200", folder: "kediler", cover: "/images/covers/cats.jpg", items: ["Kedi Mamaları", "Yaş Mama", "Kedi Kumu", "Kum Kabı", "Tırmalama Tahtası", "Kedi Oyuncakları", "Kedi Tasmaları", "Taşıma Çantası", "Kedi Yatakları"] },
+  { id: "dogs", title: "Köpek Ürünleri", text: "Tasma, mama, yatak ve bakım ürünleri.", grad: "from-yellow-100 to-orange-200", folder: "kopekler", cover: "/images/covers/dogs.jpg", items: ["Köpek Mamaları", "Ödül Mamaları", "Köpek Tasmaları", "Gezdirme Kayışları", "Köpek Oyuncakları", "Köpek Yatakları", "Şampuan ve Bakım"] }
 ];
 
 export default function App() {
@@ -82,14 +82,14 @@ export default function App() {
             <p className="text-lg text-slate-400 mb-8 max-w-md leading-relaxed">Akvaryum dünyasından evcil hayvan aksesuarlarına kadar aradığınız her şey.</p>
             <div className="flex flex-col sm:flex-row justify-center md:justify-start gap-4">
               <a href={getWhatsAppLink("Merhaba Göktürk Petshop, sizinle iletişime geçmek istiyorum.")} target="_blank" rel="noopener noreferrer" className="rounded-2xl bg-cyan-500 text-white font-bold px-8 py-3.5 text-sm flex items-center gap-2 w-full sm:w-auto justify-center hover:bg-cyan-600 shadow-lg transition cursor-pointer">İletişime Geçin</a>
-              <a href="https://instagram.com" target="_blank" rel="noopener noreferrer" className="rounded-2xl border border-slate-700 bg-slate-800/40 text-slate-300 font-bold px-8 py-3.5 text-sm w-full sm:w-auto text-center hover:bg-slate-800 transition shadow-sm">Instagram'da Takip Et</a>
+              <a href="https://instagram.com" target="_blank" rel="noopener noreferrer" className="rounded-2xl border border-slate-700 bg-slate-800/40 text-slate-300 font-bold px-8 py-3.5 text-sm w-full sm:w-auto text-center hover:bg-slate-50 transition shadow-sm">Instagram'da Takip Et</a>
             </div>
           </div>
           <div className="w-48 h-48 md:w-64 md:h-64 rounded-full overflow-hidden border-4 border-slate-800 bg-slate-900 shadow-2xl"><img src="/pet.jpg" alt="Logo" className="w-full h-full object-cover" /></div>
         </div>
       </div>
 
-      {/* KATEGORİ KARTLARI (YÜKLEDİĞİN RESİMLERİ ARAR) */}
+      {/* KATEGORİ KARTLARI (YENİ SIRALAMA) */}
       <div className="px-4 md:px-8 max-w-6xl mx-auto py-20 grid gap-6 sm:grid-cols-2 lg:grid-cols-3">
         {cats.map((cat, i) => (
           <div key={i} className="rounded-3xl border border-slate-800 bg-slate-800/40 p-5 flex flex-col justify-between cursor-pointer hover:border-cyan-500/30 hover:shadow-2xl transition-all duration-300 group shadow-md backdrop-blur-sm" onClick={() => { setPage(cat.id); window.scrollTo({ top: 0, behavior: "smooth" }); }}>
@@ -128,7 +128,7 @@ export default function App() {
               <div><h4 className="font-bold text-white mb-0.5">Adres</h4><p className="text-sm text-slate-400 leading-relaxed">Göktürk Merkez Mh. Göktürk Cd. No: 42, Eyüpsultan / İstanbul</p></div>
             </div>
             <div className="flex gap-4 items-start">
-              <span className="text-xl bg-green-950 text-green-400 p-2.5 rounded-xl border border-green-900/50">📞</span>
+              <span className="text-xl bg-green-950 text-green-400 p-2.5 rounded-xl border border-green-100/50">📞</span>
               <div><h4 className="font-bold text-white mb-0.5">Telefon / WhatsApp</h4><p className="text-sm text-slate-400 leading-relaxed">+90 532 559 97 78</p></div>
             </div>
           </div>
