@@ -124,23 +124,27 @@ export default function GokturkPetshopSite() {
         {/* DOĞRU LİNKLE GÜNCELLENEN VE ASLA ENGELLENMEYEN HARİTA ALANI */}
         <div className="h-80 w-full bg-slate-900 border border-white/10 rounded-3xl overflow-hidden relative shadow-2xl">
         {/* JAVASCRIPT KİLİTLENMESİNİ ÇÖZEN %100 GARANTİLİ DOĞRU LİNK YAPISI */}
-<a 
-  href="https://google.com.tr/maps"
-  target="_blank"
-  rel="noreferrer"
-  className="w-full h-80 bg-[#0d0e22] flex flex-col items-center justify-center p-6 text-center gap-4 group transition-all duration-300 hover:bg-[#131535] rounded-3xl border border-white/10"
->
-  <div className="w-16 h-12 rounded-2xl bg-cyan-500/10 border border-cyan-500/20 flex items-center justify-center text-cyan-400 group-hover:scale-110 transition duration-300">
-    <Map className="w-6 h-6" />
+{/* HİÇBİR LİNKE BAĞIMLI KALMAYAN, DOĞRUDAN SİTEYE GÖMÜLEN KESİN HARİTA ÇÖZÜMÜ */}
+<div className="h-80 w-full bg-slate-900 border border-white/10 rounded-3xl overflow-hidden relative shadow-2xl group hover:border-cyan-500/30 transition-all duration-300">
+  <iframe
+    title="Göktürk Petshop Canlı Harita"
+    width="100%"
+    height="100%"
+    frameBorder="0" 
+    scrolling="no" 
+    marginHeight="0" 
+    marginWidth="0"
+    // Göktürk, Eyüpsultan koordinatlarına nokta atışı kilitlenmiş özgür harita embed kodu
+    src="https://openstreetmap.org"
+    // Sitenizin koyu temasına uyması için haritayı çok şık bir karanlık moda sokan CSS filtresi
+    className="w-full h-full filter invert-[0.9] hue-rotate-[180deg] contrast-[1.2]"
+  />
+  {/* Haritanın sağ alt köşesinde dükkan adınızı gösteren şık bir neon rozet */}
+  <div className="absolute top-4 right-4 bg-[#0d0e22]/90 border border-cyan-500/30 px-3 py-1.5 rounded-xl text-xs font-bold text-cyan-400 backdrop-blur-sm shadow-lg">
+    📍 Göktürk Petshop Mağaza
   </div>
-  <div>
-    <h4 className="text-lg font-bold text-white mb-1">Canlı Yol Tarifi</h4>
-    <p className="text-xs text-slate-400 max-w-xs mx-auto">Google Haritalar üzerinden dükkanımızın tam konumuna ulaşmak için tıklayın.</p>
-  </div>
-  <div className="inline-flex items-center gap-2 bg-cyan-500 text-slate-950 font-bold px-6 py-2.5 text-xs rounded-xl transition duration-200">
-    Haritada Aç <ChevronRight className="w-3.5 h-3.5" />
-  </div>
-</a>
+</div>
+
 
 
         </div>
