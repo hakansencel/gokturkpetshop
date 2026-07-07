@@ -73,23 +73,23 @@ export default function App() {
         </div>
       )}
 
-      {/* HERO (GÜNCELLENDİ: ARKA PLANA BÜYÜK AKVARYUM AFİŞİ EKLENDİ) */}
+      {/* HERO (YENİ ARKA PLAN: NET VE DOĞAL BİTKİLİ AKVARYUM GÖRSELİ) */}
       <div className="relative border-b border-slate-800 bg-slate-900 py-24 md:py-36 overflow-hidden">
-        {/* Akvaryum Arka Plan Görseli Katmanı */}
+        {/* Hakiki Bitkili Akvaryum Görsel Katmanı */}
         <div className="absolute inset-0 z-0">
           <img 
-            src="https://images.unsplash.com/photo-1544551763-46a013bb70d5?w=1600&auto=format&fit=crop&q=80" 
-            alt="Akvaryum Arka Plan" 
-            className="w-full h-full object-cover opacity-35 scale-105"
+            src="https://images.unsplash.com/photo-1522069169874-c58ec4b76be5?w=1600&auto=format&fit=crop&q=80" 
+            alt="Doğal Bitkili Akvaryum Dünyası" 
+            className="w-full h-full object-cover opacity-40 scale-100"
           />
-          {/* Gece mavisi degrade gölgeleme katmanı */}
-          <div className="absolute inset-0 bg-gradient-to-r from-slate-950 via-slate-900/90 to-transparent"></div>
-          <div className="absolute inset-0 bg-gradient-to-t from-[#0f172a] via-transparent to-slate-950/50"></div>
+          {/* Karartma ve geçiş katmanları */}
+          <div className="absolute inset-0 bg-gradient-to-r from-slate-950 via-slate-900/85 to-transparent"></div>
+          <div className="absolute inset-0 bg-gradient-to-t from-[#0f172a] via-transparent to-slate-950/40"></div>
         </div>
 
         {/* Hero İçeriği */}
         <div className="relative z-10 px-4 md:px-8 max-w-6xl mx-auto flex flex-col md:flex-row items-center gap-12">
-          <div className="flex-1 text-center md:text-left backdrop-blur-[2px] p-2 rounded-3xl">
+          <div className="flex-1 text-center md:text-left backdrop-blur-[1px] p-2 rounded-3xl">
             <div className="inline-flex items-center gap-2 rounded-full border border-cyan-400/30 bg-cyan-950/60 px-4 py-1.5 text-xs font-bold text-cyan-400 mb-6 shadow-md">✨ Canlı Dostlarınız İçin En İyisi</div>
             <h1 className="text-4xl md:text-6xl font-black text-white mb-6 drop-shadow-md">Göktürk <span className="text-cyan-400">Petshop</span></h1>
             <p className="text-lg text-slate-200 font-medium mb-8 max-w-md leading-relaxed drop-shadow">Akvaryum dünyasından evcil hayvan aksesuarlarına kadar aradığınız her şey.</p>
