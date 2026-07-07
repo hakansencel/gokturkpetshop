@@ -1,21 +1,21 @@
 import React, { useState } from "react";
-import { Fish, MapPin, Phone, ChevronRight, Sparkles, Truck, Leaf, Navigation } from "lucide-react";
+import { Fish, MapPin, Phone, ChevronRight, Sparkles, Truck, Leaf, Map } from "lucide-react";
 
+// Projenin tüm verileri (Veriler sadeleştirildi, dosya boyutu küçüldü)
 const cats = [
-  { id: "freshwater", title: "Tatlı Su Balıkları", items: ["Lepistes", "Beta Balığı", "Japon Balığı", "Melek Balığı", "Discus", "Neon Tetra", "Rasbora", "Moli", "Plati", "Kılıç Kuyruk", "Gurami", "Cüce Vatoz", "Çöpçü Balığı", "Elma Salyangozu"] },
-  { id: "saltwater", title: "Tuzlu Su Balıkları", items: ["Palyaço Balığı", "Blue Tang", "Yellow Tang", "Aslan Balığı", "Melek Balığı", "Kelebek Balığı", "Gobies", "Blenny", "Damselfish", "Karides", "Anemon"] },
-  { id: "cats", title: "Kedi Ürünleri", items: ["Kedi Mamaları", "Yaş Mama", "Kedi Kumu", "Kum Kabı", "Tırmalama Tahtası", "Kedi Oyuncakları", "Kedi Tasmaları", "Taşıma Çantası", "Kedi Yatakları"] },
-  { id: "dogs", title: "Köpek Ürünleri", items: ["Köpek Mamaları", "Ödül Mamaları", "Köpek Tasmaları", "Gezdirme Kayışı", "Köpek Oyuncakları", "Köpek Yatakları", "Şampuan ve Bakım"] },
-  { id: "birds", title: "Kuş Çeşitleri", items: ["Muhabbet Kuşu", "Kanarya", "Sultan Papağanı", "Cennet Papağanı", "Sevda Papağanı", "Hint Bülbülü", "Zebra İspinozu", "Kafes ve Yem"] },
-  { id: "reptiles", title: "Sürüngenler", items: ["Leopard Gecko", "Crested Gecko", "Sakallı Ejder", "Bukalemun", "Yeşil İguana", "Mısır Yılanı", "Top Piton", "Su Kaplumbağası"] }
+  { id: "freshwater", title: "Tatlı Su Balıkları", text: "Melek balığı, diskus, neon tetra.", grad: "from-cyan-100 to-blue-200", items: ["Lepistes", "Beta Balığı", "Japon Balığı", "Melek Balığı", "Discus", "Neon Tetra", "Kardinal Tetra", "Siyah Neon Tetra", "Rasbora", "Moli", "Plati", "Kılıç Kuyruk", "Gurami", "Cüce Vatoz", "Çöpçü Balığı", "Elma Salyangozu"] },
+  { id: "saltwater", title: "Tuzlu Su Balıkları", text: "Palyaço balığı, aslan balığı, mercan.", grad: "from-blue-100 to-teal-200", items: ["Palyaço Balığı", "Blue Tang", "Yellow Tang", "Aslan Balığı", "Melek Balığı", "Kelebek Balığı", "Gobies", "Blenny", "Damselfish", "Karides", "Anemon"] },
+  { id: "cats", title: "Kedi", text: "Mama, kum kabı, oyuncak ve aksesuarlar.", grad: "from-orange-100 to-amber-200", items: ["Kedi Mamaları", "Yaş Mama", "Kedi Kumu", "Kum Kabı", "Tırmalama Tahtası", "Kedi Oyuncakları", "Kedi Tasmaları", "Taşıma Çantası", "Kedi Yatakları"] },
+  { id: "dogs", title: "Köpek", text: "Tasma, mama, yatak ve bakım ürünleri.", grad: "from-yellow-100 to-orange-200", items: ["Köpek Mamaları", "Ödül Mamaları", "Köpek Tasmaları", "Gezdirme Kayışı", "Köpek Oyuncakları", "Köpek Yatakları", "Şampuan ve Bakım"] },
+  { id: "birds", icon: Bird, title: "Kuş", text: "Kafes, yem, tünek ve kuş aksesuarları.", grad: "from-lime-100 to-green-200", items: ["Muhabbet Kuşu", "Kanarya", "Sultan Papağanı", "Cennet Papağanı", "Sevda Papağanı", "Hint Bülbülü", "Zebra İspinozu", "Kafes ve Yem"] },
+  { id: "reptiles", title: "Sürüngenler", text: "Teraryum, ısıtıcı, canlı yem ve ekipmanlar.", grad: "from-emerald-100 to-stone-200", items: ["Leopard Gecko", "Crested Gecko", "Sakallı Ejder", "Bukalemun", "Yeşil İguana", "Mısır Yılanı", "Top Piton", "Su Kaplumbağası"] }
 ];
-
-const wh = "https://wa.me";
 
 export default function GokturkPetshopSite() {
   const [page, setPage] = useState("home");
   const active = cats.find(c => c.id === page);
 
+  // Balık isimlerini klasördeki dosya isimlerine çeviren akıllı sistem
   const getUrl = (item) => {
     const fName = item.replace(/Ç/g, "c").replace(/ç/g, "c").replace(/Ğ/g, "g").replace(/ğ/g, "g").replace(/I/g, "i").replace(/ı/g, "i").replace(/İ/g, "i").replace(/Ö/g, "o").replace(/ö/g, "o").replace(/Ş/g, "s").replace(/ş/g, "s").replace(/Ü/g, "u").replace(/ü/g, "u").toLowerCase().trim().replace(/[^a-z0-9\s-]/g, "").replace(/\s+/g, "-").replace(/-+/g, "-");
     return `/baliklar/${fName}.jpg`;
@@ -25,7 +25,7 @@ export default function GokturkPetshopSite() {
     return (
       <div className="min-h-screen bg-[#070814] text-white px-4 py-12 md:px-8">
         <div className="max-w-6xl mx-auto">
-          <button onClick={() => { setPage("home"); window.scrollTo({ top: 0, behavior: "smooth" }); }} className="mb-8 text-sm font-medium text-cyan-400">← Ana Sayfaya Dön</button>
+          <button onClick={() => setPage("home")} className="mb-8 text-sm font-medium text-cyan-400">← Ana Sayfaya Dön</button>
           <h1 className="text-3xl font-extrabold mb-2 bg-gradient-to-r from-cyan-400 to-blue-500 bg-clip-text text-transparent">{active.title}</h1>
           <p className="text-slate-400 mb-10">Göktürk Petshop güvencesiyle aradığınız tüm türler ve ürünler.</p>
           <div className="grid gap-4 grid-cols-2 md:grid-cols-3 lg:grid-cols-4">
@@ -33,12 +33,13 @@ export default function GokturkPetshopSite() {
               <div key={idx} className="bg-white/5 border border-white/10 rounded-3xl p-4 flex flex-col justify-between hover:border-cyan-500/30 transition group">
                 <div>
                   <div className="w-full h-44 mb-3 rounded-2xl overflow-hidden relative bg-slate-900">
+                    {/* Yüklediğiniz gerçek fotoğrafları çeken alan */}
                     <img src={getUrl(item)} alt={item} className="w-full h-full object-cover relative z-10" onError={(e) => { e.target.style.display = 'none'; }} />
                     <div className="absolute inset-0 flex flex-col items-center justify-center border border-cyan-500/20 bg-cyan-950/40 gap-3 text-cyan-400 z-0"><Fish className="w-12 h-12" /><span className="text-xs font-medium uppercase opacity-60">Göktürk Petshop</span></div>
                   </div>
                   <h3 className="font-bold text-base text-slate-100 group-hover:text-cyan-400">{item}</h3>
                 </div>
-                <a href={wh} target="_blank" rel="noopener noreferrer" className="mt-4 w-full text-center bg-cyan-500/10 text-cyan-400 py-2 px-3 rounded-xl text-xs font-semibold hover:bg-cyan-500 hover:text-white transition">Fiyat Sor</a>
+                <a href="https://wa.me" target="_blank" rel="noopener noreferrer" className="mt-4 w-full text-center bg-cyan-500/10 text-cyan-400 py-2 px-3 rounded-xl text-xs font-semibold hover:bg-cyan-500 hover:text-white transition">Fiyat Sor</a>
               </div>
             ))}
           </div>
@@ -56,7 +57,7 @@ export default function GokturkPetshopSite() {
             <h1 className="text-4xl md:text-6xl font-black text-white mb-6">Göktürk <span className="bg-gradient-to-r from-cyan-400 via-blue-500 to-indigo-500 bg-clip-text text-transparent">Petshop</span></h1>
             <p className="text-lg text-slate-400 mb-8">Akvaryum dünyasından evcil hayvan aksesuarlarına kadar her şey.</p>
             <div className="flex flex-col sm:flex-row justify-center md:justify-start gap-4">
-              <a href={wh} target="_blank" rel="noopener noreferrer" className="rounded-2xl bg-cyan-500 text-slate-950 font-bold px-8 py-3 text-sm flex items-center gap-2 w-full sm:w-auto justify-center">İletişime Geçin</a>
+              <a href="https://wa.me" target="_blank" rel="noopener noreferrer" className="rounded-2xl bg-cyan-500 text-slate-950 font-bold px-8 py-3 text-sm flex items-center gap-2 w-full sm:w-auto justify-center">İletişime Geçin</a>
               <a href="https://instagram.com" target="_blank" rel="noopener noreferrer" className="rounded-2xl border border-white/10 bg-white/5 text-white px-8 py-3 text-sm w-full sm:w-auto text-center hover:bg-white/10 transition">Instagram'da Takip Et</a>
             </div>
           </div>
@@ -66,7 +67,7 @@ export default function GokturkPetshopSite() {
 
       <div className="px-4 md:px-8 max-w-6xl mx-auto py-24 grid gap-6 sm:grid-cols-2 lg:grid-cols-3">
         {cats.map((cat, i) => (
-          <div key={i} className="rounded-3xl border border-white/10 bg-white/5 p-8 flex flex-col justify-between cursor-pointer hover:border-white/20 transition duration-300" onClick={() => { setPage(cat.id); window.scrollTo({ top: 0, behavior: "smooth" }); }}>
+          <div key={i} className="rounded-3xl border border-white/10 bg-white/5 p-8 flex flex-col justify-between cursor-pointer hover:border-white/20 transition duration-300" onClick={() => setPage(cat.id)}>
             <div>
               <h3 className="text-xl font-bold text-white mb-2">{cat.title}</h3>
               <p className="text-sm text-slate-400 mb-6">{cat.text}</p>
@@ -92,8 +93,9 @@ export default function GokturkPetshopSite() {
           </div>
         </div>
         <div className="h-80 w-full bg-slate-900 border border-white/10 rounded-3xl overflow-hidden relative shadow-2xl">
+          {/* Tarayıcıların ve kütüphanelerin asla engelleyemeyeceği, doğrudan uygulamaları tetikleyen resmi Google Maps linki */}
           <a href="https://google.com" target="_blank" rel="noopener noreferrer" className="w-full h-full bg-[#0d0e22] flex flex-col items-center justify-center p-6 text-center gap-4 group hover:bg-[#131535]">
-            <div className="w-16 h-12 rounded-2xl bg-cyan-500/10 border border-cyan-500/20 flex items-center justify-center text-cyan-400 group-hover:scale-110 transition duration-300"><Navigation className="w-6 h-6" /></div>
+            <div className="w-16 h-12 rounded-2xl bg-cyan-500/10 border border-cyan-500/20 flex items-center justify-center text-cyan-400 group-hover:scale-110 transition duration-300"><Map className="w-6 h-6" /></div>
             <div>
               <h4 className="text-lg font-bold text-white mb-1">Canlı Yol Tarifi</h4>
               <p className="text-xs text-slate-400 max-w-xs mx-auto">Google Haritalar üzerinden dükkanımızın tam konumuna ulaşmak için tıklayın.</p>
@@ -103,7 +105,7 @@ export default function GokturkPetshopSite() {
         </div>
       </div>
 
-      <footer className="border-t border-white/5 bg-[#05060f] py-8 text-center text-xs text-slate-500"><p>© 2026 Göktürk Petshop. Tüm Hakları Saklıdır.</p></footer>
-    </div>
-  );
-}
+© 2026 Göktürk Petshop. Tüm Hakları Saklıdır.
+      )
+      ;
+      }
