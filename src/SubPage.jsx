@@ -1,10 +1,7 @@
 import React from "react";
-// Derleyicinin çökmesini engelleyen eksik ikon kütüphanesi buraya eklendi
 import { Fish } from "lucide-react";
 
 export default function SubPage({ active, setPage }) {
-  const wh = "https://wa.me";
-
   const getUrl = (item) => {
     const fName = item.replace(/Ç/g, "c").replace(/ç/g, "c").replace(/Ğ/g, "g").replace(/ğ/g, "g").replace(/I/g, "i").replace(/ı/g, "i").replace(/İ/g, "i").replace(/Ö/g, "o").replace(/ö/g, "o").replace(/Ş/g, "s").replace(/ş/g, "s").replace(/Ü/g, "u").replace(/ü/g, "u").toLowerCase().trim().replace(/[^a-z0-9\s-]/g, "").replace(/\s+/g, "-").replace(/-+/g, "-");
     return `/baliklar/${fName}.jpg`;
@@ -22,11 +19,11 @@ export default function SubPage({ active, setPage }) {
               <div>
                 <div className="w-full h-44 mb-3 rounded-2xl overflow-hidden relative bg-slate-900">
                   <img src={getUrl(item)} alt={item} className="w-full h-full object-cover relative z-10" onError={(e) => { e.target.style.display = 'none'; }} />
-                  <div className="absolute inset-0 flex flex-col items-center justify-center border border-cyan-500/20 bg-cyan-950/40 gap-3 text-cyan-400 z-0"><Fish className="w-12 h-12 stroke-[1.5]" /><span className="text-xs font-medium tracking-wider uppercase opacity-60">Göktürk Petshop</span></div>
+                  <div className="absolute inset-0 flex flex-col items-center justify-center border border-cyan-500/20 bg-cyan-950/40 gap-3 text-cyan-400 z-0"><Fish className="w-12 h-12" /><span className="text-xs font-medium uppercase opacity-60">Göktürk Petshop</span></div>
                 </div>
                 <h3 className="font-bold text-base text-slate-100 group-hover:text-cyan-400">{item}</h3>
               </div>
-              <a href={wh} target="_blank" rel="noopener noreferrer" className="mt-4 w-full text-center bg-cyan-500/10 hover:bg-cyan-500 text-cyan-400 hover:text-white text-xs font-semibold py-2 px-3 rounded-xl transition">Fiyat Sor</a>
+              <a href="https://wa.me" target="_blank" rel="noopener noreferrer" className="mt-4 w-full text-center bg-cyan-500/10 hover:bg-cyan-500 text-cyan-400 hover:text-white text-xs font-semibold py-2 px-3 rounded-xl transition">Fiyat Sor</a>
             </div>
           ))}
         </div>
