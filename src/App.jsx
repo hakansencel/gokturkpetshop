@@ -120,7 +120,7 @@ export default function GokturkPetshopSite() {
           </div>
         </div>
         <div className="h-80 w-full bg-slate-900 border border-white/10 rounded-3xl overflow-hidden relative shadow-2xl">
-          <a href="https://maps.google.com" target="_blank" rel="noopener noreferrer" className="w-full h-full bg-[#0d0e22] flex flex-col items-center justify-center p-6 text-center gap-4 group hover:bg-[#131535] transition">
+          <a href="https://maps.app.goo.gl/WAEPVepkZSfjqqyh9" target="_blank" rel="noopener noreferrer" className="w-full h-full bg-[#0d0e22] flex flex-col items-center justify-center p-6 text-center gap-4 group hover:bg-[#131535] transition">
             <div className="w-16 h-12 rounded-2xl bg-cyan-500/10 border border-cyan-500/20 flex items-center justify-center text-xl group-hover:scale-110 transition duration-300">🧭</div>
             <div>
               <h4 className="text-lg font-bold text-white mb-1">Canlı Yol Tarifi</h4>
