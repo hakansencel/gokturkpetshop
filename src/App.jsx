@@ -62,19 +62,35 @@ export default function GokturkPetshopSite() {
   return (
     <div className="min-h-screen bg-[#070814] text-slate-100 antialiased selection:bg-cyan-500">
       {showPopup && (
-        <div className="fixed inset-0 bg-black/70 backdrop-blur-md z-50 flex items-center justify-center p-4">
-          <div className="bg-[#0c0d21] border border-cyan-500/30 max-w-md w-full rounded-3xl p-6 relative shadow-2xl">
-            <button onClick={() => setShowPopup(false)} className="absolute top-4 right-4 text-slate-400 hover:text-white">✕</button>
-            <div className="w-12 h-12 rounded-2xl bg-cyan-500/10 border border-cyan-500/20 flex items-center justify-center text-cyan-400 mb-4"><span className="text-xl">✨</span></div>
-            <h3 className="text-2xl font-black text-white mb-2">Mağazamıza Bekleriz!</h3>
-            <p className="text-sm text-slate-400 mb-6">Göktürk şubemizde akvaryum kurulumları, canlı türleri ve evcell hayvan ürünlerinde özel fırsatlar sizi bekliyor.</p>
-            <div className="flex gap-3">
-              <button onClick={() => setShowPopup(false)} className="flex-1 border border-white/10 bg-white/5 text-xs font-bold py-3 rounded-xl text-white">Kapat</button>
-              <a href={getWhatsAppLink("Merhaba, mağazanız ve ürünleriniz hakkında bilgi almak istiyorum.")} target="_blank" rel="noopener noreferrer" className="flex-1 bg-cyan-500 text-slate-950 text-center text-xs font-bold py-3 rounded-xl hover:bg-cyan-400 transition">WhatsApp Bilgi Al</a>
-            </div>
-          </div>
-        </div>
-      )}
+  <div className="fixed inset-0 z-[200] flex items-center justify-center p-4 bg-black/80 overflow-y-auto">
+    {/* Arka plan karartması, resim dışına tıklanınca kapansın diye ayrı bir katman */}
+    <div className="absolute inset-0" onClick={() => setShowPopup(false)}></div>
+    
+    {/* Popup Resim Kutusu ve Kapatma Butonu Konteyneri */}
+    <div className="relative z-10 my-auto animate-in fade-in zoom-in-95 duration-300">
+      
+      {/* Resmin Kendisi - Genişlik ve Yükseklik Otomatik, Maksimum Boyut Sınırlandırıldı */}
+      <img 
+        src="/popup-image.jpg" // RESMİNİN ADINI BURADA DEĞİŞTİR (Örn: /kampanya-haziran.png)
+        alt="Özel Fırsat Popup" 
+        className="max-w-full max-h-[85vh] h-auto w-auto rounded-3xl shadow-2xl border-4 border-cyan-500/30 object-contain"
+        onError={(e) => { 
+          console.error("Popup resmi yüklenemedi!"); 
+          setShowPopup(false); // Resim yoksa popup'ı otomatik kapat
+        }}
+      />
+
+      {/* Modern Kapatma Butonu (Resmin Sağ Üst Köşesinde) */}
+      <button 
+        onClick={() => setShowPopup(false)} 
+        className="absolute -top-3 -right-3 w-10 h-10 rounded-full bg-cyan-500 text-slate-950 flex items-center justify-center text-lg font-black shadow-lg hover:bg-cyan-400 transition cursor-pointer z-20 border-2 border-[#0c0d21]"
+        aria-label="Kapat"
+      >
+        ✕
+      </button>
+    </div>
+  </div>
+)}
 
       <div className="relative overflow-hidden border-b border-white/5 bg-gradient-to-b from-[#0a0c1a] to-[#070814] py-20 md:py-32">
         <div className="px-4 md:px-8 max-w-6xl mx-auto flex flex-col md:flex-row items-center gap-12">
