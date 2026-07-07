@@ -73,11 +73,11 @@ export default function App() {
         </div>
       )}
 
-      {/* HERO (KÖKLÜ DEĞİŞİKLİK: ARKA PLAN YAZI ÇAKIŞMALARI BİTTİ, GÖRSEL SAĞA ALINDI) */}
+      {/* HERO SECTION */}
       <div className="border-b border-slate-800/60 bg-[#0b0f19] py-16 md:py-24">
         <div className="px-4 md:px-8 max-w-6xl mx-auto flex flex-col md:flex-row items-center gap-12 justify-between">
           
-          {/* Sol Taraf: Tamamen Sade ve Net Yazı Alanı (Kutu falan yok, tertemiz zemin) */}
+          {/* Sol Taraf: Net Yazı Alanı */}
           <div className="flex-1 text-center md:text-left">
             <h1 className="text-4xl md:text-6xl font-serif font-bold text-white mb-5 tracking-wide">
               Göktürk <span className="text-cyan-400">Petshop</span>
@@ -91,16 +91,19 @@ export default function App() {
             </div>
           </div>
           
-          {/* Sağ Taraf: Sınırları Belli, Profesyonel Büyük Görsel Alanı (Arka planda değil, bağımsız) */}
-          <div className="w-full md:w-[420px] h-64 md:h-80 rounded-3xl overflow-hidden border border-slate-800 bg-slate-900 shadow-2xl relative group">
-            <img 
-              src="https://images.unsplash.com/photo-1544551763-46a013bb70d5?w=800&auto=format&fit=crop&q=80" 
-              alt="Göktürk Akvaryum Showroom" 
-              className="w-full h-full object-cover group-hover:scale-103 transition duration-500"
-              onError={(e) => { e.target.src = "/pet.jpg"; }} 
+          {/* Sağ Taraf: İndirdiğin Instagram Videosunun Oynatılacağı Alan */}
+          <div className="w-full md:w-[420px] h-64 md:h-80 rounded-3xl overflow-hidden border border-slate-800 bg-slate-900 shadow-2xl relative">
+            <video 
+              src="/videos/gokturk-hero.mp4" 
+              autoPlay 
+              loop 
+              muted 
+              playsInline
+              className="w-full h-full object-cover"
+              /* Video yüklenene kadar ya da bir hata oluşursa duracak şık bir yedek görsel */
+              poster="https://images.unsplash.com/photo-1544551763-46a013bb70d5?w=800&auto=format&fit=crop&q=80"
             />
-            {/* Görsele derinlik katan hafif alt gölge */}
-            <div className="absolute inset-0 bg-gradient-to-t from-black/40 via-transparent to-transparent pointer-events-none"></div>
+            <div className="absolute inset-0 bg-gradient-to-t from-black/30 via-transparent to-transparent pointer-events-none"></div>
           </div>
 
         </div>
