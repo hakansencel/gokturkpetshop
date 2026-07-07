@@ -73,23 +73,38 @@ export default function App() {
         </div>
       )}
 
-      {/* HERO (GİRİŞ KAPAK ALANI) */}
-      <div className="relative overflow-hidden border-b border-slate-800 bg-gradient-to-b from-slate-900 to-[#0f172a] py-20 md:py-32">
-        <div className="px-4 md:px-8 max-w-6xl mx-auto flex flex-col md:flex-row items-center gap-12">
-          <div className="flex-1 text-center md:text-left">
-            <div className="inline-flex items-center gap-2 rounded-full border border-cyan-500/20 bg-cyan-950/40 px-4 py-1.5 text-xs font-bold text-cyan-400 mb-6 shadow-sm">✨ Canlı Dostlarınız İçin En İyisi</div>
-            <h1 className="text-4xl md:text-6xl font-black text-white mb-6">Göktürk <span className="text-cyan-400">Petshop</span></h1>
-            <p className="text-lg text-slate-400 mb-8 max-w-md leading-relaxed">Akvaryum dünyasından evcil hayvan aksesuarlarına kadar aradığınız her şey.</p>
+      {/* HERO (GÜNCELLENDİ: ARKA PLANA BÜYÜK AKVARYUM AFİŞİ EKLENDİ) */}
+      <div className="relative border-b border-slate-800 bg-slate-900 py-24 md:py-36 overflow-hidden">
+        {/* Akvaryum Arka Plan Görseli Katmanı */}
+        <div className="absolute inset-0 z-0">
+          <img 
+            src="https://images.unsplash.com/photo-1544551763-46a013bb70d5?w=1600&auto=format&fit=crop&q=80" 
+            alt="Akvaryum Arka Plan" 
+            className="w-full h-full object-cover opacity-35 scale-105"
+          />
+          {/* Gece mavisi degrade gölgeleme katmanı */}
+          <div className="absolute inset-0 bg-gradient-to-r from-slate-950 via-slate-900/90 to-transparent"></div>
+          <div className="absolute inset-0 bg-gradient-to-t from-[#0f172a] via-transparent to-slate-950/50"></div>
+        </div>
+
+        {/* Hero İçeriği */}
+        <div className="relative z-10 px-4 md:px-8 max-w-6xl mx-auto flex flex-col md:flex-row items-center gap-12">
+          <div className="flex-1 text-center md:text-left backdrop-blur-[2px] p-2 rounded-3xl">
+            <div className="inline-flex items-center gap-2 rounded-full border border-cyan-400/30 bg-cyan-950/60 px-4 py-1.5 text-xs font-bold text-cyan-400 mb-6 shadow-md">✨ Canlı Dostlarınız İçin En İyisi</div>
+            <h1 className="text-4xl md:text-6xl font-black text-white mb-6 drop-shadow-md">Göktürk <span className="text-cyan-400">Petshop</span></h1>
+            <p className="text-lg text-slate-200 font-medium mb-8 max-w-md leading-relaxed drop-shadow">Akvaryum dünyasından evcil hayvan aksesuarlarına kadar aradığınız her şey.</p>
             <div className="flex flex-col sm:flex-row justify-center md:justify-start gap-4">
-              <a href={getWhatsAppLink("Merhaba Göktürk Petshop, sizinle iletişime geçmek istiyorum.")} target="_blank" rel="noopener noreferrer" className="rounded-2xl bg-cyan-500 text-white font-bold px-8 py-3.5 text-sm flex items-center gap-2 w-full sm:w-auto justify-center hover:bg-cyan-600 shadow-lg transition cursor-pointer">İletişime Geçin</a>
-              <a href="https://instagram.com" target="_blank" rel="noopener noreferrer" className="rounded-2xl border border-slate-700 bg-slate-800/40 text-slate-300 font-bold px-8 py-3.5 text-sm w-full sm:w-auto text-center hover:bg-slate-50 transition shadow-sm">Instagram'da Takip Et</a>
+              <a href={getWhatsAppLink("Merhaba Göktürk Petshop, sizinle iletişime geçmek istiyorum.")} target="_blank" rel="noopener noreferrer" className="rounded-2xl bg-cyan-500 text-white font-bold px-8 py-3.5 text-sm flex items-center gap-2 w-full sm:w-auto justify-center hover:bg-cyan-600 shadow-xl transition-all duration-300 hover:-translate-y-0.5 cursor-pointer">İletişime Geçin</a>
+              <a href="https://instagram.com" target="_blank" rel="noopener noreferrer" className="rounded-2xl border border-slate-600 bg-slate-900/70 text-slate-200 font-bold px-8 py-3.5 text-sm w-full sm:w-auto text-center hover:bg-slate-800 transition shadow-md">Instagram'da Takip Et</a>
             </div>
           </div>
-          <div className="w-48 h-48 md:w-64 md:h-64 rounded-full overflow-hidden border-4 border-slate-800 bg-slate-900 shadow-2xl"><img src="/pet.jpg" alt="Logo" className="w-full h-full object-cover" /></div>
+          <div className="w-48 h-48 md:w-64 md:h-64 rounded-full overflow-hidden border-4 border-cyan-500/30 bg-slate-900 shadow-2xl relative z-20 group hover:border-cyan-400 transition-all duration-500">
+            <img src="/pet.jpg" alt="Logo" className="w-full h-full object-cover group-hover:scale-105 transition duration-500" />
+          </div>
         </div>
       </div>
 
-      {/* KATEGORİ KARTLARI (YENİ SIRALAMA) */}
+      {/* KATEGORİ KARTLARI */}
       <div className="px-4 md:px-8 max-w-6xl mx-auto py-20 grid gap-6 sm:grid-cols-2 lg:grid-cols-3">
         {cats.map((cat, i) => (
           <div key={i} className="rounded-3xl border border-slate-800 bg-slate-800/40 p-5 flex flex-col justify-between cursor-pointer hover:border-cyan-500/30 hover:shadow-2xl transition-all duration-300 group shadow-md backdrop-blur-sm" onClick={() => { setPage(cat.id); window.scrollTo({ top: 0, behavior: "smooth" }); }}>
