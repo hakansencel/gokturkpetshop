@@ -1,4 +1,5 @@
 import React from "react";
+// Derleyicinin çökmesini engelleyen eksik ikon kütüphanesi buraya eklendi
 import { Fish } from "lucide-react";
 
 export default function SubPage({ active, setPage }) {
