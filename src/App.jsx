@@ -1,12 +1,12 @@
 import React, { useState, useEffect } from "react";
 
 const cats = [
-  { id: "freshwater", title: "Tatlı Su Balıkları", text: "Melek balığı, diskus ve neon tetra.", grad: "from-cyan-100 to-blue-200", folder: "baliklar", items: ["Lepistes", "Beta Balığı", "Japon Balığı", "Melek Balığı", "Discus", "Neon Tetra", "Kardinal Tetra", "Siyah Neon Tetra", "Rasbora", "Moli", "Plati", "Kılıç Kuyruk", "Gurami", "Cüce Vatoz", "Çöpçü Balığı", "Elma Salyangozu"] },
-  { id: "saltwater", title: "Tuzlu Su Balıkları", text: "Palyaço balığı, aslan balığı ve mercanlar.", grad: "from-blue-100 to-teal-200", folder: "baliklar", items: ["Palyaço Balığı", "Blue Tang", "Yellow Tang", "Aslan Balığı", "Melek Balığı", "Kelebek Balığı", "Gobies", "Blenny", "Damselfish", "Karides", "Mercan Çeşitleri", "Anemon"] },
-  { id: "cats", title: "Kedi Ürünleri", text: "Mama, kum, oyuncak ve aksesuarlar.", grad: "from-orange-100 to-amber-200", folder: "kediler", items: ["Kedi Mamaları", "Yaş Mama", "Kedi Kumu", "Kum Kabı", "Tırmalama Tahtası", "Kedi Oyuncakları", "Kedi Tasmaları", "Taşıma Çantası", "Kedi Yatakları"] },
-  { id: "dogs", title: "Köpek Ürünleri", text: "Tasma, mama, yatak ve bakım ürünleri.", grad: "from-yellow-100 to-orange-200", folder: "kopekler", items: ["Köpek Mamaları", "Ödül Mamaları", "Köpek Tasmaları", "Gezdirme Kayışları", "Köpek Oyuncakları", "Köpek Yatakları", "Şampuan ve Bakım"] },
-  { id: "birds", title: "Kuş Çeşitleri", text: "Kafes, yem ve kuş aksesuarları.", grad: "from-lime-100 to-green-200", folder: "kuslar", items: ["Muhabbet Kuşu", "Kanarya", "Sultan Papağanı", "Cennet Papağanı", "Sevda Papağanı", "Hint Bülbülü", "Zebra İspinozu", "Kafes ve Yem"] },
-  { id: "reptiles", title: "Sürüngenler", text: "Teraryum, ısıtıcı ve ekipmanlar.", grad: "from-emerald-100 to-stone-200", folder: "surengenler", items: ["Leopard Gecko", "Crested Gecko", "Sakallı Ejder", "Bukalemun", "Yeşil İguana", "Mısır Yılanı", "Top Piton", "Su Kaplumbağası"] }
+  { id: "freshwater", title: "Tatlı Su Balıkları", text: "Melek balığı, diskus ve neon tetra.", grad: "from-cyan-100 to-blue-200", folder: "baliklar", cover: "/images/covers/freshwater.jpg", items: ["Lepistes", "Beta Balığı", "Japon Balığı", "Melek Balığı", "Discus", "Neon Tetra", "Kardinal Tetra", "Siyah Neon Tetra", "Rasbora", "Moli", "Plati", "Kılıç Kuyruk", "Gurami", "Cüce Vatoz", "Çöpçü Balığı", "Elma Salyangozu"] },
+  { id: "saltwater", title: "Tuzlu Su Balıkları", text: "Palyaço balığı, aslan balığı ve mercanlar.", grad: "from-blue-100 to-teal-200", folder: "baliklar", cover: "/images/covers/saltwater.jpg", items: ["Palyaço Balığı", "Blue Tang", "Yellow Tang", "Aslan Balığı", "Melek Balığı", "Kelebek Balığı", "Gobies", "Blenny", "Damselfish", "Karides", "Mercan Çeşitleri", "Anemon"] },
+  { id: "cats", title: "Kedi Ürünleri", text: "Mama, kum, oyuncak ve aksesuarlar.", grad: "from-orange-100 to-amber-200", folder: "kediler", cover: "/images/covers/cats.jpg", items: ["Kedi Mamaları", "Yaş Mama", "Kedi Kumu", "Kum Kabı", "Tırmalama Tahtası", "Kedi Oyuncakları", "Kedi Tasmaları", "Taşıma Çantası", "Kedi Yatakları"] },
+  { id: "dogs", title: "Köpek Ürünleri", text: "Tasma, mama, yatak ve bakım ürünleri.", grad: "from-yellow-100 to-orange-200", folder: "kopekler", cover: "/images/covers/dogs.jpg", items: ["Köpek Mamaları", "Ödül Mamaları", "Köpek Tasmaları", "Gezdirme Kayışları", "Köpek Oyuncakları", "Köpek Yatakları", "Şampuan ve Bakım"] },
+  { id: "birds", title: "Kuş Çeşitleri", text: "Kafes, yem ve kuş aksesuarları.", grad: "from-lime-100 to-green-200", folder: "kuslar", cover: "/images/covers/birds.jpg", items: ["Muhabbet Kuşu", "Kanarya", "Sultan Papağanı", "Cennet Papağanı", "Sevda Papağanı", "Hint Bülbülü", "Zebra İspinozu", "Kafes ve Yem"] },
+  { id: "reptiles", title: "Sürüngenler", text: "Teraryum, ısıtıcı ve ekipmanlar.", grad: "from-emerald-100 to-stone-200", folder: "surengenler", cover: "/images/covers/reptiles.jpg", items: ["Leopard Gecko", "Crested Gecko", "Sakallı Ejder", "Bukalemun", "Yeşil İguana", "Mısır Yılanı", "Top Piton", "Su Kaplumbağası"] }
 ];
 
 export default function GokturkPetshopSite() {
@@ -107,18 +107,31 @@ export default function GokturkPetshopSite() {
         </div>
       </div>
 
-      <div className="px-4 md:px-8 max-w-6xl mx-auto py-24 grid gap-6 sm:grid-cols-2 lg:grid-cols-3">
-        {cats.map((cat, i) => (
-          <div key={i} className="rounded-3xl border border-white/10 bg-white/5 p-8 flex flex-col justify-between cursor-pointer hover:border-cyan-500/30 transition-all duration-300" onClick={() => { setPage(cat.id); window.scrollTo({ top: 0, behavior: "smooth" }); }}>
-            <div>
-              <div className="w-12 h-12 rounded-2xl bg-white/10 flex items-center justify-center text-xl mb-6">🐾</div>
-              <h3 className="text-xl font-bold text-white mb-2">{cat.title}</h3>
-              <p className="text-sm text-slate-400 mb-6">{cat.text}</p>
-            </div>
-            <div className="text-sm font-semibold text-cyan-400 flex items-center gap-1">Çeşitleri İncele ➔</div>
-          </div>
-        ))}
+    <div className="px-4 md:px-8 max-w-6xl mx-auto py-24 grid gap-6 sm:grid-cols-2 lg:grid-cols-3">
+  {cats.map((cat, i) => (
+    <div 
+      key={i} 
+      className="rounded-3xl border border-white/10 bg-white/5 p-6 flex flex-col justify-between cursor-pointer hover:border-cyan-500/30 transition-all duration-300 group" 
+      onClick={() => { setPage(cat.id); window.scrollTo({ top: 0, behavior: "smooth" }); }}
+    >
+      <div>
+        {/* KATEGORİ FOTOĞRAFI ALANI (Eski 🐾 emojisinin yerine gelen kısım) */}
+        <div className="w-full h-40 rounded-2xl overflow-hidden mb-6 bg-slate-900 border border-white/5 relative">
+          <img 
+            src={cat.cover} 
+            alt={cat.title} 
+            className="w-full h-full object-cover group-hover:scale-105 transition duration-500"
+            onError={(e) => { e.target.src = "/pet.jpg"; }} // Eğer kapak resmi bulunamazsa varsayılan logoyu gösterir
+          />
+        </div>
+        
+        <h3 className="text-xl font-bold text-white mb-2 group-hover:text-cyan-400 transition">{cat.title}</h3>
+        <p className="text-sm text-slate-400 mb-6">{cat.text}</p>
       </div>
+      <div className="text-sm font-semibold text-cyan-400 flex items-center gap-1">Çeşitleri İncele ➔</div>
+    </div>
+  ))}
+</div>
 
       <div className="bg-[#090a18] border-y border-white/5 py-12 grid gap-6 grid-cols-2 md:grid-cols-4 px-4 max-w-6xl mx-auto rounded-3xl mb-12">
         {["Geniş Ürün Yelpazesi", "Akvaryum Ürünleri", "Kaliteli Ürünler", "Hızlı Teslimat"].map((t, i) => (
