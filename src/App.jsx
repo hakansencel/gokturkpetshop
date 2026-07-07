@@ -84,7 +84,7 @@ export default function GokturkPetshopSite() {
             <p className="text-lg text-slate-400 mb-8">Akvaryum dünyasından evcil hayvan aksesuarlarına kadar her şey.</p>
             <div className="flex flex-col sm:flex-row justify-center md:justify-start gap-4">
               <a href={getWhatsAppLink("Merhaba Göktürk Petshop, sizinle iletişime geçmek istiyorum.")} target="_blank" rel="noopener noreferrer" className="rounded-2xl bg-cyan-500 text-slate-950 font-bold px-8 py-3 text-sm flex items-center gap-2 w-full sm:w-auto justify-center hover:bg-cyan-400 transition">İletişime Geçin</a>
-              <a href="https://instagram.com" target="_blank" rel="noopener noreferrer" className="rounded-2xl border border-white/10 bg-white/5 text-white px-8 py-3 text-sm w-full sm:w-auto text-center hover:bg-white/10 transition">Instagram'da Takip Et</a>
+              <a href="https://instagram.com/gokturk.petshop" target="_blank" rel="noopener noreferrer" className="rounded-2xl border border-white/10 bg-white/5 text-white px-8 py-3 text-sm w-full sm:w-auto text-center hover:bg-white/10 transition">Instagram'da Takip Et</a>
             </div>
           </div>
           <div className="w-48 h-48 md:w-64 md:h-64 rounded-full overflow-hidden border-4 border-white/10 bg-slate-800"><img src="/pet.jpg" alt="Logo" className="w-full h-full object-cover" /></div>
