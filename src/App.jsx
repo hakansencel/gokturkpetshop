@@ -7,7 +7,7 @@ const cats = [
   { id: "birds", title: "Kuş Çeşitleri", text: "Kafes, yem ve kuş aksesuarları.", grad: "from-lime-100 to-green-200", folder: "kuslar", cover: "/images/covers/birds.jpg", items: ["Muhabbet Kuşu", "Kanarya", "Sultan Papağanı", "Cennet Papağanı", "Sevda Papağanı", "Hint Bülbülü", "Zebra İspinozu", "Kafes ve Yem"] },
   { id: "reptiles", title: "Sürüngenler", text: "Teraryum, ısıtıcı ve ekipmanlar.", grad: "from-emerald-100 to-stone-200", folder: "surengenler", cover: "/images/covers/reptiles.jpg", items: ["Leopard Gecko", "Crested Gecko", "Sakallı Ejder", "Bukalemun", "Yeşil İguana", "Mısır Yılanı", "Top Piton", "Su Kaplumbağası"] },
   { id: "cats", title: "Kedi Ürünleri", text: "Mama, kum, oyuncak ve aksesuarlar.", grad: "from-orange-100 to-amber-200", folder: "kediler", cover: "/images/covers/cats.jpg", items: ["Kedi Mamaları", "Yaş Mama", "Kedi Kumu", "Kum Kabı", "Tırmalama Tahtası", "Kedi Oyuncakları", "Kedi Tasmaları", "Taşıma Çantası", "Kedi Yatakları"] },
-  { id: "dogs", title: "Köpek Ürünleri", text: "Tasma, mama, yatak ve bakım ürünleri.", grad: "from-yellow-100 to-orange-200", folder: "kopekler", cover: "/images/covers/dogs.jpg", items: ["Köpek Mamaları", "Ödül Mamaları", "Köpek Tasmaları", "Gezdirme Kayışları", "Köpek Oyuncakları", "Köpek Yatakları", "Şampuan ve Bakım"] }
+  { id: "dogs", title: "Köpek Ürünleri", text: "Tasma, mama, yatak ve bakım skulları.", grad: "from-yellow-100 to-orange-200", folder: "kopekler", cover: "/images/covers/dogs.jpg", items: ["Köpek Mamaları", "Ödül Mamaları", "Köpek Tasmaları", "Gezdirme Kayışları", "Köpek Oyuncakları", "Köpek Yatakları", "Şampuan ve Bakım"] }
 ];
 
 export default function App() {
@@ -73,32 +73,35 @@ export default function App() {
         </div>
       )}
 
-      {/* HERO (YENİ ARKA PLAN: NET VE DOĞAL BİTKİLİ AKVARYUM GÖRSELİ) */}
-      <div className="relative border-b border-slate-800 bg-slate-900 py-24 md:py-36 overflow-hidden">
-        {/* Hakiki Bitkili Akvaryum Görsel Katmanı */}
+      {/* HERO (GÜNCELLENDİ: SADELEŞTİRİLMİŞ, ÖZEL FONT VE MİNİMAL LOGO ALANI) */}
+      <div className="relative border-b border-slate-800/60 bg-[#0b0f19] py-24 md:py-36 overflow-hidden">
+        {/* Arka Plan Görsel Katmanı (Görseli daha da açığa çıkaran ayar) */}
         <div className="absolute inset-0 z-0">
           <img 
-            src="https://images.unsplash.com/photo-1522069169874-c58ec4b76be5?w=1600&auto=format&fit=crop&q=80" 
-            alt="Doğal Bitkili Akvaryum Dünyası" 
-            className="w-full h-full object-cover opacity-40 scale-100"
+            src="https://images.unsplash.com/photo-1508817628294-5a453fa0b8fb?w=1600&auto=format&fit=crop&q=80" 
+            alt="Neon Bitkili Akvaryum Dünyası" 
+            className="w-full h-full object-cover opacity-25 pointer-events-none filter contrast-110"
           />
-          {/* Karartma ve geçiş katmanları */}
-          <div className="absolute inset-0 bg-gradient-to-r from-slate-950 via-slate-900/85 to-transparent"></div>
-          <div className="absolute inset-0 bg-gradient-to-t from-[#0f172a] via-transparent to-slate-950/40"></div>
+          <div className="absolute inset-0 bg-gradient-to-r from-[#0f172a] via-[#0f172a]/90 to-[#0f172a]/30"></div>
+          <div className="absolute inset-0 bg-gradient-to-t from-[#0f172a] via-transparent to-[#0b0f19]/20"></div>
         </div>
 
         {/* Hero İçeriği */}
         <div className="relative z-10 px-4 md:px-8 max-w-6xl mx-auto flex flex-col md:flex-row items-center gap-12">
-          <div className="flex-1 text-center md:text-left backdrop-blur-[1px] p-2 rounded-3xl">
-            <div className="inline-flex items-center gap-2 rounded-full border border-cyan-400/30 bg-cyan-950/60 px-4 py-1.5 text-xs font-bold text-cyan-400 mb-6 shadow-md">✨ Canlı Dostlarınız İçin En İyisi</div>
-            <h1 className="text-4xl md:text-6xl font-black text-white mb-6 drop-shadow-md">Göktürk <span className="text-cyan-400">Petshop</span></h1>
-            <p className="text-lg text-slate-200 font-medium mb-8 max-w-md leading-relaxed drop-shadow">Akvaryum dünyasından evcil hayvan aksesuarlarına kadar aradığınız her şey.</p>
+          <div className="flex-1 text-center md:text-left">
+            {/* Üstteki yazı rozeti kaldırıldı */}
+            <h1 className="text-4xl md:text-6xl font-serif font-bold text-white mb-6 tracking-wide drop-shadow-md">
+              Göktürk <span className="text-cyan-400">Petshop</span>
+            </h1>
+            <p className="text-base md:text-lg text-slate-400 font-medium mb-8 max-w-md leading-relaxed">Akvaryum dünyasından evcil hayvan aksesuarlarına kadar aradığınız her şey.</p>
             <div className="flex flex-col sm:flex-row justify-center md:justify-start gap-4">
               <a href={getWhatsAppLink("Merhaba Göktürk Petshop, sizinle iletişime geçmek istiyorum.")} target="_blank" rel="noopener noreferrer" className="rounded-2xl bg-cyan-500 text-white font-bold px-8 py-3.5 text-sm flex items-center gap-2 w-full sm:w-auto justify-center hover:bg-cyan-600 shadow-xl transition-all duration-300 hover:-translate-y-0.5 cursor-pointer">İletişime Geçin</a>
-              <a href="https://instagram.com" target="_blank" rel="noopener noreferrer" className="rounded-2xl border border-slate-600 bg-slate-900/70 text-slate-200 font-bold px-8 py-3.5 text-sm w-full sm:w-auto text-center hover:bg-slate-800 transition shadow-md">Instagram'da Takip Et</a>
+              <a href="https://instagram.com" target="_blank" rel="noopener noreferrer" className="rounded-2xl border border-slate-800 bg-slate-900/40 text-slate-300 font-bold px-8 py-3.5 text-sm w-full sm:w-auto text-center hover:bg-slate-800/80 transition shadow-sm">Instagram'da Takip Et</a>
             </div>
           </div>
-          <div className="w-48 h-48 md:w-64 md:h-64 rounded-full overflow-hidden border-4 border-cyan-500/30 bg-slate-900 shadow-2xl relative z-20 group hover:border-cyan-400 transition-all duration-500">
+          
+          {/* Logo Boyutu Küçültüldü: w-64'ten w-40'a düşürüldü */}
+          <div className="w-40 h-40 rounded-full overflow-hidden border-4 border-slate-800/80 bg-[#161e2e] shadow-2xl relative z-20 group hover:border-cyan-500/30 transition-all duration-500 md:mr-6">
             <img src="/pet.jpg" alt="Logo" className="w-full h-full object-cover group-hover:scale-105 transition duration-500" />
           </div>
         </div>
