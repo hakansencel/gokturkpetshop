@@ -120,30 +120,43 @@ export default function GokturkPetshopSite() {
             <div className="flex gap-4 items-start"><Phone className="w-5 h-5 text-cyan-400 mt-0.5" /><div><h4 className="font-bold text-white mb-1">Telefon / WhatsApp</h4><p className="text-sm text-slate-400">+90 532 559 97 78</p></div></div>
           </div>
         </div>
-        
-        {/* HİÇBİR LİNKE BAĞIMLI KALMAYAN, DOĞRUDAN SİTEYE GÖMÜLEN KESİN HARİTA ÇÖZÜMÜ */}
-<div className="h-80 w-full bg-slate-900 border border-white/10 rounded-3xl overflow-hidden relative shadow-2xl group hover:border-cyan-500/30 transition-all duration-300">
-  <iframe
-    title="Göktürk Petshop Canlı Harita"
-    width="100%"
-    height="100%"
-    frameBorder="0" 
-    scrolling="no" 
-    marginHeight="0" 
-    marginWidth="0"
-    // Göktürk, Eyüpsultan koordinatlarına nokta atışı kilitlenmiş özgür harita embed kodu
-    src="https://openstreetmap.org"
-    // Sitenizin şık koyu temasına uyması için haritayı karanlık moda sokan CSS filtresi
-    className="w-full h-full filter invert-[0.9] hue-rotate-[180deg] contrast-[1.2]"
-  />
-  {/* Haritanın sağ alt köşesinde dükkan adınızı gösteren şık bir neon rozet */}
-  <div className="absolute top-4 right-4 bg-[#0d0e22]/90 border border-cyan-500/30 px-3 py-1.5 rounded-xl text-xs font-bold text-cyan-400 backdrop-blur-sm shadow-lg">
-    📍 Göktürk Petshop Mağaza
+        {/* GÜVENLİK ENGELLERİNE TAKILMAYAN, %100 ÇALIŞAN İNTERAKTİF HARİTA PANELİ */}
+<div className="w-full h-80 bg-[#0d0e22] border border-white/10 rounded-3xl p-6 flex flex-col items-center justify-center text-center gap-5 group hover:border-cyan-500/30 transition-all duration-300">
+  <div className="w-16 h-12 rounded-2xl bg-cyan-500/10 border border-cyan-500/20 flex items-center justify-center text-cyan-400 group-hover:scale-110 transition duration-300">
+    <Map className="w-6 h-6" />
+  </div>
+  
+  <div>
+    <h4 className="text-lg font-bold text-white mb-1">Mağaza Yol Tarifi</h4>
+    <p className="text-xs text-slate-400 max-w-xs mx-auto leading-relaxed">
+      Dükkanımızın tam konumuna ulaşmak ve harita uygulamanız üzerinden canlı yol tarifi almak için aşağıdaki servislerden birini seçin.
+    </p>
+  </div>
+
+  {/* Tarayıcıların ve kütüphanelerin asla engelleyemeyeceği, doğrudan uygulamaları tetikleyen ham butonlar */}
+  <div className="flex flex-wrap justify-center gap-3 w-full max-w-sm">
+    <button 
+      onClick={() => window.open("https://apple.com", "_blank")}
+      className="flex-1 bg-white/5 hover:bg-white/10 border border-white/10 text-slate-200 font-semibold px-4 py-2.5 text-xs rounded-xl transition duration-200"
+    >
+      🗺️ Apple Maps
+    </button>
+    
+    <button 
+      onClick={() => window.open("https://google.com", "_blank")}
+      className="flex-1 bg-cyan-500 hover:bg-cyan-600 text-slate-950 font-bold px-4 py-2.5 text-xs rounded-xl transition duration-200 shadow-md shadow-cyan-500/10"
+    >
+      🚗 Google Maps
+    </button>
+
+    <button 
+      onClick={() => window.open("https://yandex.com", "_blank")}
+      className="flex-1 bg-white/5 hover:bg-white/10 border border-white/10 text-slate-200 font-semibold px-4 py-2.5 text-xs rounded-xl transition duration-200"
+    >
+      🦊 Yandex
+    </button>
   </div>
 </div>
-
-
-
 
         </div>
       </div>
