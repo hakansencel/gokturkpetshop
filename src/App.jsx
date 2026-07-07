@@ -121,10 +121,7 @@ export default function GokturkPetshopSite() {
           </div>
         </div>
         
-        {/* DOĞRU LİNKLE GÜNCELLENEN VE ASLA ENGELLENMEYEN HARİTA ALANI */}
-        <div className="h-80 w-full bg-slate-900 border border-white/10 rounded-3xl overflow-hidden relative shadow-2xl">
-        {/* JAVASCRIPT KİLİTLENMESİNİ ÇÖZEN %100 GARANTİLİ DOĞRU LİNK YAPISI */}
-{/* HİÇBİR LİNKE BAĞIMLI KALMAYAN, DOĞRUDAN SİTEYE GÖMÜLEN KESİN HARİTA ÇÖZÜMÜ */}
+        {/* HİÇBİR LİNKE BAĞIMLI KALMAYAN, DOĞRUDAN SİTEYE GÖMÜLEN KESİN HARİTA ÇÖZÜMÜ */}
 <div className="h-80 w-full bg-slate-900 border border-white/10 rounded-3xl overflow-hidden relative shadow-2xl group hover:border-cyan-500/30 transition-all duration-300">
   <iframe
     title="Göktürk Petshop Canlı Harita"
@@ -136,7 +133,7 @@ export default function GokturkPetshopSite() {
     marginWidth="0"
     // Göktürk, Eyüpsultan koordinatlarına nokta atışı kilitlenmiş özgür harita embed kodu
     src="https://openstreetmap.org"
-    // Sitenizin koyu temasına uyması için haritayı çok şık bir karanlık moda sokan CSS filtresi
+    // Sitenizin şık koyu temasına uyması için haritayı karanlık moda sokan CSS filtresi
     className="w-full h-full filter invert-[0.9] hue-rotate-[180deg] contrast-[1.2]"
   />
   {/* Haritanın sağ alt köşesinde dükkan adınızı gösteren şık bir neon rozet */}
@@ -144,6 +141,7 @@ export default function GokturkPetshopSite() {
     📍 Göktürk Petshop Mağaza
   </div>
 </div>
+
 
 
 
