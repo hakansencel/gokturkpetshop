@@ -71,7 +71,7 @@ export default function GokturkPetshopSite() {
       
       {/* Resmin Kendisi - Genişlik ve Yükseklik Otomatik, Maksimum Boyut Sınırlandırıldı */}
       <img 
-        src="/popup-image.jpg" // RESMİNİN ADINI BURADA DEĞİŞTİR (Örn: /kampanya-haziran.png)
+        src="/popup.jpg" // RESMİNİN ADINI BURADA DEĞİŞTİR (Örn: /kampanya-haziran.png)
         alt="Özel Fırsat Popup" 
         className="max-w-full max-h-[85vh] h-auto w-auto rounded-3xl shadow-2xl border-4 border-cyan-500/30 object-contain"
         onError={(e) => { 
