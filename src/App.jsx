@@ -125,7 +125,7 @@ export default function GokturkPetshopSite() {
         <div className="h-80 w-full bg-slate-900 border border-white/10 rounded-3xl overflow-hidden relative shadow-2xl">
         {/* JAVASCRIPT KİLİTLENMESİNİ ÇÖZEN %100 GARANTİLİ DOĞRU LİNK YAPISI */}
 <a 
-  href="https://google.com"
+  href="https://google.com.tr/maps"
   target="_blank"
   rel="noreferrer"
   className="w-full h-80 bg-[#0d0e22] flex flex-col items-center justify-center p-6 text-center gap-4 group transition-all duration-300 hover:bg-[#131535] rounded-3xl border border-white/10"
