@@ -7,7 +7,7 @@ const cats = [
   { id: "birds", title: "Kuş Çeşitleri", text: "Kafes, yem ve kuş aksesuarları.", grad: "from-lime-100 to-green-200", folder: "kuslar", cover: "/images/covers/birds.jpg", items: ["Muhabbet Kuşu", "Kanarya", "Sultan Papağanı", "Cennet Papağanı", "Sevda Papağanı", "Hint Bülbülü", "Zebra İspinozu", "Kafes ve Yem"] },
   { id: "reptiles", title: "Sürüngenler", text: "Teraryum, ısıtıcı ve ekipmanlar.", grad: "from-emerald-100 to-stone-200", folder: "surengenler", cover: "/images/covers/reptiles.jpg", items: ["Leopard Gecko", "Crested Gecko", "Sakallı Ejder", "Bukalemun", "Yeşil İguana", "Mısır Yılanı", "Top Piton", "Su Kaplumbağası"] },
   { id: "cats", title: "Kedi Ürünleri", text: "Mama, kum, oyuncak ve aksesuarlar.", grad: "from-orange-100 to-amber-200", folder: "kediler", cover: "/images/covers/cats.jpg", items: ["Kedi Mamaları", "Yaş Mama", "Kedi Kumu", "Kum Kabı", "Tırmalama Tahtası", "Kedi Oyuncakları", "Kedi Tasmaları", "Taşıma Çantası", "Kedi Yatakları"] },
-  { id: "dogs", title: "Köpek Ürünleri", text: "Tasma, mama, yatak ve bakım ürünleri.", grad: "from-yellow-100 to-orange-200", folder: "kopekler", cover: "/images/covers/dogs.jpg", items: ["Köpek Mamaları", "Ödül Mamaları", "Köpek Tasmaları", "Gezdirme Kayışları", "Köpek Oyuncakları", "Köpek Yatakları", "Şampuan ve Bakım"] }
+  { id: "dogs", title: "Köpek Ürünleri", text: "Tasma, mama, yatak ve bakım ürünleri.", grad: "from-yellow-100 to-orange-200", folder: "kopekler", cover: "/images/covers/dogs.jpg", items: ["Köpek Mamaları", "Ödül Mamaları", "Köpek Tasmaları", "Gezdirme Kayışları", "Köpek Oyuncakları", "Köpek Yatakları", "Şappan ve Bakım"] }
 ];
 
 export default function App() {
@@ -77,8 +77,13 @@ export default function App() {
       <div className="border-b border-slate-800/60 bg-[#0b0f19] py-16 md:py-24">
         <div className="px-4 md:px-8 max-w-6xl mx-auto flex flex-col md:flex-row items-center gap-12 justify-between">
           
-          {/* Sol Taraf: Net Yazı Alanı */}
+          {/* Sol Taraf: Logo ve Metin Alanı */}
           <div className="flex-1 text-center md:text-left">
+            {/* Logo buraya yerleştirildi: Üst kısımda kurumsal ve şık bir imza olarak duruyor */}
+            <div className="inline-block w-16 h-16 rounded-full overflow-hidden border-2 border-slate-700 bg-[#161e2e] shadow-md mb-4 mx-auto md:mx-0">
+              <img src="/pet.jpg" alt="Göktürk Petshop Logo" className="w-full h-full object-cover" />
+            </div>
+            
             <h1 className="text-4xl md:text-6xl font-serif font-bold text-white mb-5 tracking-wide">
               Göktürk <span className="text-cyan-400">Petshop</span>
             </h1>
@@ -100,7 +105,6 @@ export default function App() {
               muted 
               playsInline
               className="w-full h-full object-cover"
-              /* Video yüklenene kadar ya da bir hata oluşursa duracak şık bir yedek görsel */
               poster="https://images.unsplash.com/photo-1544551763-46a013bb70d5?w=800&auto=format&fit=crop&q=80"
             />
             <div className="absolute inset-0 bg-gradient-to-t from-black/30 via-transparent to-transparent pointer-events-none"></div>
