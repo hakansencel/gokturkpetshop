@@ -152,7 +152,7 @@ export default function App() {
           <div className="space-y-5">
             <div className="flex gap-4 items-start">
               <span className="text-xl bg-cyan-950 text-cyan-400 p-2.5 rounded-xl border border-cyan-900/50">📍</span>
-              <div><h4 className="font-bold text-white mb-0.5">Adres</h4><p className="text-sm text-slate-400 leading-relaxed">Göktürk Merkez Mh. Göktürk Cd. No: 42, Eyüpsultan / İstanbul</p></div>
+              <div><h4 className="font-bold text-white mb-0.5">Adres</h4><p className="text-sm text-slate-400 leading-relaxed">Göktürk Merkez, Çamlık Cd. No: 37/C, 34077 Eyüpsultan/İstanbul</p></div>
             </div>
             <div className="flex gap-4 items-start">
               <span className="text-xl bg-green-950 text-green-400 p-2.5 rounded-xl border border-green-100/50">📞</span>
